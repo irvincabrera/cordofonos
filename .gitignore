@@ -19,3 +19,5 @@ logs
 
 /logs/application.log
 cordofonos/target/
+
+conf/
