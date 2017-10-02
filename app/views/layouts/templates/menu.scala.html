@@ -1,12 +1,18 @@
 <div id="menu" class="col-md-12">
 	<ul class="topnav">
-		<li><a class="active" href="">Inicio</a><li>
-		<li><a href="">Crear Orden de Servicio</a><li>
-		<li><a href="">Buscar Orden de Servicio</a><li>
-		<li><a href="">Venta</a><li>
-		<li><a href="">Accesorios</a><li>
-		<li><a href="">Administrador</a><li>
-		<li class="right"><a href="" >Cordófonos</a><li>
-		<li class="right"><a href="">Usuario</a><li>
+		<li><a class="active" href="">Inicio</a></li>
+		<li><a href="">Crear Orden de Servicio</a></li>
+		<li><a href="">Buscar Orden de Servicio</a></li>
+		<li><a href="">Venta</a></li>
+		<li><a href="">Accesorios</a></li>
+		<li><a href="">Administrador</a></li>
+		<li class="right"><a href="" >Cordófonos</a></li>
+		<li class="right dropdwn">
+			<a href="" class="dropbtn">Usuario</a>
+    		<div class="dropdwn-content">
+		      	<a href="#">Usuario</a>
+				<a class="cerrarSesion" href="@routes.Authenticate.logout()">Cerrar Sesión</a>
+	    	</div>
+    	</li>
 	</ul>
 </div>
