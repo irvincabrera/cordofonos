@@ -1,0 +1,1 @@
+INSERT INTO usuario (id,user_name,nombre,paterno,materno,password,email,pregunta_secreta,activo) VALUES (1,'Administrador','admin','admin','admin','12345','admin@admin.com','',1);

@@ -1,0 +1,1 @@
+INSERT INTO usuario(user_name,nombre,password,email,activo) VALUES('administrador','Administrador','secret','contacto@contacto.com',1);

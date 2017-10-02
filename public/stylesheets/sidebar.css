@@ -1,0 +1,76 @@
+/*#sideMenu{
+	height:2em;
+	width: 100%;
+	position: relative;
+	z-index:2;
+	top:0;
+	left:0;
+	background-color: #1D1E21;
+	overflow-x: hidden;
+
+	transition: 0.5s;
+}
+#sideMenu li{
+	padding:18px 8px 18px 8px;
+	text-decoration: none;
+	font-size: 1em;
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+#sideMenu a:hover, .offcanvas a:focus{
+	color: #FFFDF2;
+	text-shadow: 3px 3px grey;
+}
+#sideMenu .closebtn{
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+#menuBtn{
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	left:0;
+	padding: 25px;
+}*/
+
+ul.topnav{
+	position: relative;
+	top: 0;
+	bottom: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #1D1E21;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+
+}
+ul.topnav li{
+	float: left;
+}
+ul.topnav li a{
+	font-family: sans-serif;
+	display: block;
+	color: white;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold
+}
+ul.topnav li a:hover:not(.active) {
+	background-color: #111;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+}
+ul.topnav li a:hover(.active) {
+	background-color: #111;
+}
+ul.topnav li a.active {
+	background-color:  #E22C2C;
+}
+@media screen and (max-width: 600px){
+    ul.topnav li {float: none;}
+}

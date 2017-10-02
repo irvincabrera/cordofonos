@@ -1,0 +1,48 @@
+@media screen and (max-width: 600px){
+    
+}
+#menu{
+	z-index: 1;
+	padding: 0;
+}
+
+ul.topnav{
+	/*position: relative;*/
+	top: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #1D1E21;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+
+}
+ul.topnav li{
+	float: left;
+}
+ul.topnav li a{
+	font-family: sans-serif;
+	display: block;
+	color: white;
+	padding: 14px 16px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold
+}
+ul.topnav li a.right{
+	color: #E22C2C;
+}	
+li.right{
+	float: right;
+}
+ul.topnav li a:hover:not(.active) {
+	background-color: #111;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+}
+ul.topnav li a:hover(.active) {
+	background-color: #111;
+	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+}
+ul.topnav li a.active {
+	background-color:  #E22C2C;
+}

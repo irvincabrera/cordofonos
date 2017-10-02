@@ -1,0 +1,48 @@
+@(form: Form[Authenticate.Login])
+@layouts.loginLayout("Iniciar Sesión"){
+	<div>	
+		<div class="row">
+			<div class="col-md-12" >
+				<section class="row">
+					<div class="input-centerd col-md-offset-3 col-md-6">
+						<h3 >Inicia Sesión</h3>
+						@helper.form(routes.Authenticate.authenticate()){
+							<div class="row">
+								<div class="input-centerd form-group" >
+									<label>Usuario
+									<input id="userName" type="text" name="userName" placeholder="Tu nombre de usuario" class="form-control" value="@form("userName").value()" ></label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-centerd form-group">	
+									<label>Contraseña<input id="password" type="password" name="password" placeholder="Tu contraseña" class="form-control "</label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div id="submit" class="form-group">	
+									<button type="Submit" class="btn btn-md btn-primary">Entrar</button>
+									<!-- <div class="form-group">
+									<p class="link" align="center"><a href="http://localhost/bujiaexpress/vista/registro.html">Regístrate</a></p> 
+									</div>-->
+								</div>
+							</div>
+                            @if(form.hasGlobalErrors) {
+                                <span class="label label-danger">
+                                    @form.globalError.message
+                                </span>
+                            }
+                            @if(flash.contains("success")) {
+							    <p class="success label label-success">
+							        @flash.get("success")
+							    </p>
+					    	}
+						}
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	@layouts.templates.footer()
+}
