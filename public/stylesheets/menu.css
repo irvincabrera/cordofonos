@@ -55,8 +55,11 @@ li a, .dropbtn {
     text-decoration: none;
 }
 
-li a:hover, .dropdwn:hover .dropbtn {
+/*li a:hover, a.dropbtn:hover .dropbtn {
     background-color: #E22C2C;
+}*/
+li a:hover, .dropdwn-content:hover{
+    background-color: black;
 }
 
 li.dropdwn {
@@ -68,7 +71,7 @@ li.dropdwn {
     position: absolute;
     background-color: #1D1E21;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(150,0,0,0.2);
     z-index: 1;
 }
 
@@ -80,8 +83,11 @@ li.dropdwn {
     text-align: left;
 }
 
-.dropdwn-content a:hover {background-color: #f1f1f1}
+.dropdwn-content a:hover {background-color: #E22C2C}
 
 .dropdwn:hover .dropdwn-content {
     display: block;
+}
+#userTag{
+	color
 }
