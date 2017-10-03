@@ -63,6 +63,12 @@ public class Usuario extends Model{
 		}
 	}
 
+	public String obtenNombre(){
+		String nombreUser = "";
+		nombreUser += nombre;
+		return nombreUser;
+	}
+
 	/******************************************/
 	/******************CRUD********************/
 	/******************************************/

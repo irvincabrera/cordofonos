@@ -1,11 +1,6 @@
-/*body{
-  background-color: #393845;
-}*/
 #contentWrapper{
   z-index: 0;
-  margin-left: 15%;
-  margin-right: 15%;
-  /*background-color: white;*/
+  margin-top: 80px;
   color:black;
 }
 #ftr{
@@ -14,10 +9,10 @@
   bottom: 0;
   left: 0;
   color:#9B96A3;
-  background: #1D1E21;
+  background-color: #1D1E21;
   background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
   text-align: center;
-  height: auto;
+  height: 1em;
   margin-bottom: 0;
 }
 #ftr a{
@@ -36,7 +31,6 @@
   margin: 0;
   background: #1D1E21/* 2B3032 *//* #2c3e50 */;
   background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
-  /*color: #E22C2C;*/
   padding-bottom: 0.3em;
   height: auto;
 }
@@ -49,29 +43,9 @@
 #header h3{
   font-family: sans-serif;
   color: #fff;
-  
-   text-shadow: 2px 2px black;
-}
-.profile {
-  position: relative;
-  top: 0;
-  right: 0;
-  float: right;
-  overflow: hidden;
-  right: 0;
-}
-.profile li {
-  list-style-type: none;
-}
-.profile li a{
-  color: #E22C2C;
-  padding: 14px 18px;
+  text-shadow: 2px 2px black;
 }
 .login-form{
   text-align: center;
   margin: 0 auto;
 }
-/*p{
-  color: #9B96A3;
-}*/
-

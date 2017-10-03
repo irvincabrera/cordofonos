@@ -29,9 +29,9 @@ ul.topnav li a{
 	text-decoration: none;
 	font-weight: bold
 }
-ul.topnav li .right{
+ul.topnav li a.right{
 	color: #E22C2C;
-	float: right;
+	right: 0;
 }	
 ul.topnav li a:hover:not(.active) {
 	background-color: #111;
@@ -44,7 +44,7 @@ ul.topnav li a:hover(.active) {
 ul.topnav li a.active {
 	background-color:  #E22C2C;
 }
-li a, .dropbtn {
+li a .dropbtn {
     display: inline-block;
     text-align: center;    
     text-decoration: none;

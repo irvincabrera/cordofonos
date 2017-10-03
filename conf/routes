@@ -8,6 +8,9 @@ GET     /                           controllers.HomeController.index
 GET		/login 						controllers.Authenticate.login
 POST	/login 						controllers.Authenticate.authenticate
 GET		/logout 					controllers.Authenticate.logout
+#########ORDEN DE SERVICIO##########
+GET		/crear-orden-servicio		controllers.OrdenesServicios.indexCreateOrden
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
