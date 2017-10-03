@@ -1,7 +1,7 @@
 @media screen and (max-width: 600px){
     
 }
-#menu{
+.menu{
 	z-index: 1;
 	padding: 0;
 }
@@ -29,12 +29,10 @@ ul.topnav li a{
 	text-decoration: none;
 	font-weight: bold
 }
-ul.topnav li a.right{
+ul.topnav li .right{
 	color: #E22C2C;
-}	
-li.right{
 	float: right;
-}
+}	
 ul.topnav li a:hover:not(.active) {
 	background-color: #111;
 	background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");

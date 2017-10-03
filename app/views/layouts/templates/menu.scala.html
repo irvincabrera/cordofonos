@@ -1,18 +1,15 @@
-<div id="menu" class="col-md-12">
+@(
+	displayMenu: Boolean
+)
+<div class=" menu col-md-10">
 	<ul class="topnav">
 		<li><a class="active" href="">Inicio</a></li>
-		<li><a href="">Crear Orden de Servicio</a></li>
-		<li><a href="">Buscar Orden de Servicio</a></li>
-		<li><a href="">Venta</a></li>
-		<li><a href="">Accesorios</a></li>
-		<li><a href="">Administrador</a></li>
-		<li class="right"><a href="" >Cordófonos</a></li>
-		<li class="right dropdwn">
-			<a href="" id="userTag" class="dropbtn">Usuario<span class="caret"></span></a>
-    		<div class="dropdwn-content">
-		      	<a href="#">Perfil</a>
-				<a class="cerrarSesion" href="@routes.Authenticate.logout()">Cerrar Sesión</a>
-	    	</div>
-    	</li>
+		@if(displayMenu){
+		<li class="hidden-sm"><a href="">Crear Orden de Servicio</a></li>
+		<li class="hidden-sm"><a href="">Buscar Orden de Servicio</a></li>
+		<li class="hidden-sm"><a href="">Venta</a></li>
+		<li class="hidden-sm"><a href="">Accesorios</a></li>
+		<li class="hidden-sm"><a href="">Administrador</a></li>
+		}
 	</ul>
 </div>
