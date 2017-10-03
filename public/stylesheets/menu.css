@@ -71,6 +71,7 @@ li.dropdwn {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(150,0,0,0.2);
     z-index: 1;
+    right: 0;
 }
 
 .dropdwn-content a {
@@ -79,8 +80,8 @@ li.dropdwn {
     text-decoration: none;
     display: block;
     text-align: left;
+    
 }
-
 .dropdwn-content a:hover {background-color: #E22C2C}
 
 .dropdwn:hover .dropdwn-content {
