@@ -4,8 +4,16 @@
 <div class=" menu col-md-11 col-xs-8">
 	<ul class="topnav">
 		<li><a class="active" href="">Inicio</a></li>
+		<li class="hidden-md hidden-lg dropdwn"><a class="dropbtn">Menú<span class="caret"></a>
+			<div class="dropdwn-content">
+		      	<a href="#">Crear Orden de Servicio</a>
+				<a href="#">Buscar Orden de Servicio</a>
+				<a href="#">Venta</a>
+				<a href="#">Accesorios</a>
+				<a href="#">Administrador</a>
+			</div>
+		</li>
 		@if(displayMenu){
-			<li class="hidden-md hidden-lg"><a href="">Menú<span class="caret"></a></li>
 			<li class="hidden-sm hidden-xs"><a href="#">Crear Orden de Servicio</a></li>
 			<li class="hidden-sm hidden-xs"><a href="#">Buscar Orden de Servicio</a></li>
 			<li class="hidden-sm hidden-xs"><a href="#">Venta</a></li>
