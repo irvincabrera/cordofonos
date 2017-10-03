@@ -10,10 +10,17 @@
         </div>
         <div id="contentWrapper">
             @content
+            @layouts.templates.menu(true)
+            @layouts.templates.profile()
+        </div>
+        <div id="contentWrapper">
+            @content
             
         </div>
         @layouts.templates.footer() 
         
+        <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+        @layouts.templates.footer()        
         <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
     </body>
 </html>
