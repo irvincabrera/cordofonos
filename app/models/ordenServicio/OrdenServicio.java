@@ -85,7 +85,11 @@ public class OrdenServicio extends Model{
 
 	public static Finder<Long, OrdenServicio> find = new Finder<Long,OrdenServicio>(OrdenServicio.class);
 
+	public Long obtenNumOrden(){
+		Long noOrden = 0L;
 
+		return noOrden;
+	}
 	/******************************************/
 	/******************CRUD********************/
 	/******************************************/
