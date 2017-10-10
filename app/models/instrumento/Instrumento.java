@@ -34,7 +34,7 @@ public class Instrumento extends Model{
 	public String color;
 
 	@Formats.DateTime(pattern="dd/MM/yyyy")
-	public Date fechaInstrumento;
+	public Date fechaProduccion;
 
 	@OneToMany
 	public List<AccionEntonacion> accionEntonacion;
