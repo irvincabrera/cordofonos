@@ -118,7 +118,7 @@ create table instrumento (
   modelo                        varchar(255),
   num_serie                     varchar(255),
   color                         varchar(255),
-  fecha_instrumento             datetime(6),
+  fecha_produccion              datetime(6),
   cliente_id                    bigint,
   registered_by_id              bigint,
   created                       datetime(6) not null,
