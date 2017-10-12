@@ -9,7 +9,8 @@ GET		/login 						controllers.Authenticate.login
 POST	/login 						controllers.Authenticate.authenticate
 GET		/logout 					controllers.Authenticate.logout
 #########ORDEN DE SERVICIO##########
-GET		/crear-orden-servicio		controllers.OrdenesServicios.indexCreateOrden
+GET		/orden-servicio				controllers.OrdenesServicios.indexCreateOrden
+#POST	/orden-servicio/save		controllers.OrdenesServicios.save
 
 
 # Map static resources from the /public folder to the /assets URL path

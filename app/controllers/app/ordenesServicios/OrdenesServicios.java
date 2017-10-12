@@ -17,4 +17,14 @@ public class OrdenesServicios extends Controller {
         return ok(views.html.app.ordenServicio.create.indexCreateOrdenServicio.render(user));
     }
 
+    // public Result save() {
+    //     Form<OrdenServicio> ordenForm = formFactory.form(OrdenServicio.class).bindFromRequest(); 
+    //     if(ordenForm.hasErrors()) {
+    //         return badRequest(views.html.app.ordenServicio.create._formCreate.render(ordenForm));
+    //     }
+    //     OrdenServicio ordenServicio = ordenServicio.save(ordenForm.get());
+    //     flash("success", "OrdenServicio " + ordenForm.get().id + " ha sido registrada");
+    //     return redirect(routes.HomeController.index());
+    // }
+
 }
