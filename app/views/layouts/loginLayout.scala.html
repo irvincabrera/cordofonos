@@ -3,25 +3,23 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        @* Here's where we render the page title `String`. *@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@title</title>
         <link rel="icon" href="@routes.Assets.versioned("images/minuscula.png")">
         <link rel="stylesheet" href="@routes.Assets.versioned("bootstrap/css/bootstrap.css")"> 
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/login.css")">
-        
         <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
-
     </head>
-    <body id="container-fluid">
-        <div>
-            <section id="header">
+    <body class="container-fluid">
+        <div class="row">
+            <section id="header" class="col-md-12">
                 <h1>Cordófonos</h1>
                 <h3>Taller de Guitarras y Bajos</h3>
             </section>
         </div>
-        <div >
+        <div class="contentWrapper">
         @content
-        </div>                                                                                                                                                                                                                                                                                                              
+        </div>
+        @layouts.templates.footer()                                      
     </body>
 </html>

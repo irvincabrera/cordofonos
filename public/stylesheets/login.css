@@ -10,6 +10,7 @@ h3{
   /*background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");*/
   background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
   color: #E22C2C;
+  width:100%;
   padding-right: 20%;
   padding-left: 20%;
   padding-top: 1em;
@@ -32,27 +33,28 @@ body{
   /*background: #FFFDF2 url(/assets/images/benedetto17_black.png) no-repeat fixed center;
   background-size: cover;*/
 }
+.contentWrapper{
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
 #wrapper{
   margin-left: 20%;
   margin-right:  20%;
 }
-#ftr{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color:#fff;
-  background: #1D1E21;
+.footer{
+  color:#9B96A3;
+  background-color: #1D1E21;
   background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
   text-align: center;
-  height: auto;
-  margin-bottom: 0;
+  height: 50px;
 }
-#ftr a{
+.footer a{
   font-weight: bold;
+  color: #E22C2C;
 }
-#ftr a:hover{
+.footer a:hover{
   text-shadow: 1 1;
+  text-decoration: none;
 }
 input{
   font-family: sans-serif;
