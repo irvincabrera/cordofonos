@@ -41,13 +41,19 @@
 <div class="row">
 	<div class="col-md-12">
 		<legend>Instrumento</legend>
-		<div class="col-md-12">
+		<div class="row">
 			<p>Tipo de instrumento</p>
-			<label for="guitarraElectrica">Guitarra Eléctrica<input type="radio" name="guitarraElectrica" value="Guitarra Eléctrica"></label>
-			<label for="guitarraAcustica">Guitarra Acústica<input type="radio" name="guitarraAcustica" value="Guitarra Acústica"></label>
-			<label for="bajoElectrico">Bajo Eléctrico<input type="radio" name="bajoElectrico" value="Bajo Eléctrico"></label>
-			<label for="bajoaAcustico">Bajo Acústico<input type="radio" name="bajoaAcustico" value="Bajo Acústico"></label>
-			<label for="otroInstrumento">Otro<input type="radio" name="otro" value="Otro"></label>
+			<div id="tipoInstrumento" class="col-md-12">
+				<div class="col-md-6">
+					<label for="guitarraElectrica">Guitarra Eléctrica<input type="radio" name="guitarraElectrica" value="Guitarra Eléctrica"></label>
+					<label for="guitarraAcustica">Guitarra Acústica<input type="radio" name="guitarraAcustica" value="Guitarra Acústica"></label>
+					<label for="otroInstrumento">Otro<input type="radio" name="otro" value="Otro"></label>
+				</div>
+				<div class="col-md-6 radio-spaced">
+					<label for="bajoElectrico">Bajo Eléctrico<input type="radio" name="bajoElectrico" value="Bajo Eléctrico"></label>
+					<label for="bajoaAcustico">Bajo Acústico<input type="radio" name="bajoaAcustico" value="Bajo Acústico"></label>
+				</div>
+			</div>
 		</div>
 		<div>
 			<label for="">Marca:<input type="text" class="form-control"></label>
@@ -69,6 +75,11 @@
 <div class="row">
 	<div class="col-md-12">
 		<legend>Inspección e Inventario</legend>
+			<label for="estuche">Acción y Encontación<input type="checkbox" name="estuche" value="Estuche"></label>
+			<div id="accionEntonacion">			
+				<label for="estuche">Estuche<input type="text" name="estuche" value="Estuche"></label>
+				<label for="estuche">Estuche<input type="text" name="estuche" value="Estuche"></label>
+			</div>
 		
 	</div>
 </div>
