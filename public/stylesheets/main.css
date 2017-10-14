@@ -64,8 +64,10 @@ body{
 }
 .navbar-header a.navbar-brand{
   color: #e22c2c;
+  font-weight: bold;
 }
 .navbar-header a.navbar-brand:hover{
+  background-color: black;
   color: #e22c2c;
 
 }
@@ -74,7 +76,7 @@ body{
 }
 #navbar > ul:nth-child(1) > li.active > a{
   color:black;
-  font-weight: bold;
+  
   background-color: #e22c2c;
 }
 #navbar > ul:nth-child(1) > li.active > a:hover{

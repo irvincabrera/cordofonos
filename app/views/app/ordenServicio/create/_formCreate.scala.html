@@ -3,7 +3,7 @@
 )
 <div class="row clearfix">
 	<div class="col-md-6">
-		<h3>Orden de Servicio</h3>
+		<h2><strong>Orden de Servicio</strong></h2>
 		<div>
 		<h4>Número de Orden <strong style="color: #E22C2C; vertical-align: bottom; background-color: #dff0d8;">0000</strong></h4>
 		</div>
@@ -18,7 +18,7 @@
 <div class="row clearfix" >
 	<div class="col-md-12">
 		<fieldset>
-			<legend>Cliente</legend>
+			<legend><h3>Cliente</h3></legend>
 			<div>
 				<button class="btn btn-primary">Buscar Cliente</button>
 			</div>
@@ -38,47 +38,167 @@
 		</fieldset>
 	</div>
 </div>
+<hr>
 <div class="row">
 	<div class="col-md-12">
-		<legend>Instrumento</legend>
+		<legend><h3>Instrumento</h3></legend>
+		<h4>Tipo de instrumento</h4>
 		<div class="row">
-			<p>Tipo de instrumento</p>
-			<div id="tipoInstrumento" class="col-md-12">
+			<div id="tipoInstrumento" class="col-md-12 radio radio-red">
 				<div class="col-md-6">
-					<label for="guitarraElectrica">Guitarra Eléctrica<input type="radio" name="guitarraElectrica" value="Guitarra Eléctrica"></label>
-					<label for="guitarraAcustica">Guitarra Acústica<input type="radio" name="guitarraAcustica" value="Guitarra Acústica"></label>
-					<label for="otroInstrumento">Otro<input type="radio" name="otro" value="Otro"></label>
+					<div>
+						<input type="radio" name="guitarraElectrica" value="Guitarra Eléctrica">
+						<label for="guitarraElectrica">Guitarra Eléctrica</label>
+					</div>
+					<div>
+						<input type="radio" name="guitarraAcustica" value="Guitarra Acústica">
+						<label for="guitarraAcustica">Guitarra Acústica</label>
+					</div>
+					<div>
+						<input type="radio" name="otro" value="Otro">
+						<label for="otroInstrumento">Otro</label>
+					</div>
+					<div id="otroInstrumentoInput" class="col-md-12" style="display: none;">
+							<div>
+								<input type="text" name="otroContenedorInput" class="form-control">
+							</div>
+						</div>
 				</div>
-				<div class="col-md-6 radio-spaced">
-					<label for="bajoElectrico">Bajo Eléctrico<input type="radio" name="bajoElectrico" value="Bajo Eléctrico"></label>
-					<label for="bajoaAcustico">Bajo Acústico<input type="radio" name="bajoaAcustico" value="Bajo Acústico"></label>
+
+				<div class="col-md-6">
+					<div>
+						<input type="radio" name="bajoElectrico" value="Bajo Eléctrico">
+						<label for="bajoElectrico">Bajo Eléctrico</label>
+					</div>
+					<div>
+						<input type="radio" name="bajoaAcustico" value="Bajo Acústico">
+						<label for="bajoaAcustico">Bajo Acústico</label>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div>
-			<label for="">Marca:<input type="text" class="form-control"></label>
-			<label for="">Modelo:<input type="text" class="form-control"></label>
-			<label for="">Núm. Serie:<input type="text" class="form-control"></label>
-			<label for="">Color:<input type="text" class="form-control"></label>
-			<label for="">Fecha de Producción:<input type="text" class="form-control"></label>
-			<label for="">Almacén:<input type="text" class="form-control"></label>
+		<!-- style="display: none;" -->
+		<div id="tipoInstrumentoInput" class="input" >
+			<label for="">Marca:</label>
+				<input type="text" class="form-control">
+			<label for="">Modelo:</label>
+				<input type="text" class="form-control">
+			<label for="">Núm. Serie:</label>
+				<input type="text" class="form-control">
+			<label for="">Color:</label>
+				<input type="text" class="form-control">
+			<label for="">Fecha de Producción:</label>
+				<input type="text" class="form-control">
+			<label for="">Almacén:</label>
+				<input type="text" class="form-control">
 		</div>
-		<div>
-			<p>Recibido en</p>
-			<label for="estuche">Estuche<input type="radio" name="estuche" value="Estuche"></label>
-			<label for="semi">Semi<input type="radio" name="semi" value="Semi"></label>
-			<label for="funda">Funda<input type="radio" name="funda" value="Funda"></label>
-			<label for="otroRecibido">Otro<input type="radio" name="otro" value="Otro"></label>
+	</div>
+	<div id="recibidoEn" class="row radio radio-red">
+		<div class="col-md-12">
+			<legend><h4>Recibido en</h4></legend>
+			<div class="col-md-6">
+				<div>
+					<input type="radio" name="estuche" value="Estuche">
+						<label for="estuche">Estuche</label>
+				</div>
+				<div>
+					<input type="radio" name="semi" value="Semi">
+						<label for="semi">Semi</label>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div>
+					<input type="radio" name="funda" value="Funda">
+						<label for="funda">Funda</label>
+				</div>
+				<div>
+					<input type="radio" name="otro" value="Otro">
+						<label for="otroRecibido">Otro</label>
+					<div id="otroContenedor" class="col-md-12" >
+						<div>
+							<input type="text" name="otroContenedor" class="form-control">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+<hr>
 <div class="row">
 	<div class="col-md-12">
-		<legend>Inspección e Inventario</legend>
-			<label for="estuche">Acción y Encontación<input type="checkbox" name="estuche" value="Estuche"></label>
-			<div id="accionEntonacion">			
-				<label for="estuche">Estuche<input type="text" name="estuche" value="Estuche"></label>
-				<label for="estuche">Estuche<input type="text" name="estuche" value="Estuche"></label>
+		<legend><h3>Inspección e Inventario</h3></legend>
+			<div class="checkbox checkbox-danger">
+				<input type="checkbox" name="estuche" value="Estuche">
+				<label for="estuche">Acción y Encontación</label>
+			</div>
+
+			<div class="row" id="accionEntonacion">			
+				<div class="col-md-12">
+					<div class="col-md-offset-2 col-md-4">
+						<label for="funda">Acción en el Puente</label>
+					</div>
+					
+					<div class="col-md-6">
+						<input type="radio" name="funda" value="Óptimas Condiciones">
+							<label for="funda">B</label>
+						<input type="radio" name="funda" value="Puede requerir Atención">
+							<label for="funda">R</label>
+						<input type="radio" name="funda" value="Atención Inmediata">
+							<label for="funda">M</label>
+						<input type="radio" name="funda" value="Anotaciones">
+							<label for="funda">A</label>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-offset-2 col-md-4">
+						<label for="funda">Acción en Cejuela</label>
+					</div>
+					
+					<div class="col-md-6">
+						<input type="radio" name="funda" value="Óptimas Condiciones">
+							<label for="funda">B</label>
+						<input type="radio" name="funda" value="Puede requerir Atención">
+							<label for="funda">R</label>
+						<input type="radio" name="funda" value="Atención Inmediata">
+							<label for="funda">M</label>
+						<input type="radio" name="funda" value="Anotaciones">
+							<label for="funda">A</label>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-offset-2 col-md-4">
+						<label for="funda">Curvatura de Brazo</label>
+					</div>
+					
+					<div class="col-md-6">
+						<input type="radio" name="funda" value="Óptimas Condiciones">
+							<label for="funda">B</label>
+						<input type="radio" name="funda" value="Puede requerir Atención">
+							<label for="funda">R</label>
+						<input type="radio" name="funda" value="Atención Inmediata">
+							<label for="funda">M</label>
+						<input type="radio" name="funda" value="Anotaciones">
+							<label for="funda">A</label>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="col-md-offset-2 col-md-4">
+						<label for="funda">Entonación</label>
+					</div>
+					
+					<div class="col-md-6">
+						<input type="radio" name="funda" value="Óptimas Condiciones">
+							<label for="funda">B</label>
+						<input type="radio" name="funda" value="Puede requerir Atención">
+							<label for="funda">R</label>
+						<input type="radio" name="funda" value="Atención Inmediata">
+							<label for="funda">M</label>
+						<input type="radio" name="funda" value="Anotaciones">
+							<label for="funda">A</label>
+					</div>
+				</div>
 			</div>
 		
 	</div>
