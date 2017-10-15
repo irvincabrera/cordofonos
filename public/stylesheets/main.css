@@ -7,7 +7,7 @@ body{
 .contentWrapper
 {
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
 }
 .footer
 {
@@ -15,7 +15,8 @@ body{
     text-align: center;
     color: #9b96a3;
     background-color: #1d1e21;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+    /*background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');*/
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
 }
 .footer a
 {

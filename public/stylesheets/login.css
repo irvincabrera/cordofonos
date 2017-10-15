@@ -5,7 +5,7 @@ h3{
   text-align: center;
 }
 #header{
-  background: #1D1E21/* 2B3032 *//* #2c3e50 */;
+  background: #1D1E21;
   /*background-image: url("https://www.transparenttextures.com/patterns/subtle-dark-vertical.png");*/
   /*background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");*/
   /*background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");*/
@@ -29,11 +29,6 @@ h3{
   text-shadow: 2px 2px black;
   text-align: left;
 }
-body{
-  /*background-color: #FFFDF2;*/
-  /*background: #FFFDF2 url(/assets/images/benedetto17_black.png) no-repeat fixed center;
-  background-size: cover;*/
-}
 .contentWrapper{
   margin-bottom: 80px;
   margin-top: 80px;
@@ -43,13 +38,17 @@ body{
   margin-right:  20%;
 }
 .footer{
+  position: fixed;
+  bottom: 0;
   color:#9B96A3;
   background-color: #1D1E21;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");
+  /*background-image: url("https://www.transparenttextures.com/patterns/dark-circles.png");*/
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
   text-align: center;
   height: 50px;
 }
 .footer a{
+  line-height: 50px;
   font-weight: bold;
   color: #E22C2C;
 }
