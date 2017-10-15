@@ -27,40 +27,11 @@ body{
     text-decoration: none;
     text-shadow: 1 1;
 }
-#header
-{
-    position: relative;
-    top: 0;
-    left: :0;
-    display: block;
-    height: auto;
-    margin: 0;
-    padding-bottom: .3em;
-    background: #1d1e21/* 2B3032 *//* #2c3e50 */;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
-}
-#header h1
-{
-    font-family: 'Maven Pro', sans-serif;
-    text-align: left;
-    color: #e22c2c;
-    text-shadow: 3px 3px black;
-}
-#header h3
-{
-    font-family: sans-serif;
-    color: #fff;
-    text-shadow: 2px 2px black;
-}
-.login-form
-{
-    margin: 0 auto;
-    text-align: center;
-}
 .navbar{
   font-family: 'Maven Pro', sans-serif;
   background-color: #1d1e21;
-  background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
+  /*background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');*/
 }
 .navbar-header a.navbar-brand{
   color: #e22c2c;
@@ -112,4 +83,11 @@ body{
 .radio-spaced label{
   padding-left: 10px;
   padding-right: 10px;
+}
+.dimMargin{
+  margin-top: -5px;
+  margin-bottom: : -5px;
+}
+.clearMargin{
+  margin:10px 0 10px 0;
 }
