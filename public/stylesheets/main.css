@@ -4,6 +4,11 @@
 body{
   font-family: 'Maven Pro', sans-serif;
 }
+.btn-black {
+  color: #fff;
+  background-color: #1d1e21;
+  border-color: #1d1e21;
+}
 .contentWrapper
 {
     margin-top: 80px;
@@ -11,56 +16,32 @@ body{
 }
 .footer
 {
+  width: 100%;
     height: 50px;
     text-align: center;
     color: #9b96a3;
     background-color: #1d1e21;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+    /*background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');*/
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
 }
 .footer a
 {
     font-weight: bold;
     color: #e22c2c;
 }
+.footer p{
+    line-height: 50px  
+}
 .footer a:hover
 {
     text-decoration: none;
     text-shadow: 1 1;
 }
-#header
-{
-    position: relative;
-    top: 0;
-    left: :0;
-    display: block;
-    height: auto;
-    margin: 0;
-    padding-bottom: .3em;
-    background: #1d1e21/* 2B3032 *//* #2c3e50 */;
-    background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
-}
-#header h1
-{
-    font-family: 'Maven Pro', sans-serif;
-    text-align: left;
-    color: #e22c2c;
-    text-shadow: 3px 3px black;
-}
-#header h3
-{
-    font-family: sans-serif;
-    color: #fff;
-    text-shadow: 2px 2px black;
-}
-.login-form
-{
-    margin: 0 auto;
-    text-align: center;
-}
 .navbar{
   font-family: 'Maven Pro', sans-serif;
   background-color: #1d1e21;
-  background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre-big.png");
+  /*background-image: url('https://www.transparenttextures.com/patterns/dark-circles.png');*/
 }
 .navbar-header a.navbar-brand{
   color: #e22c2c;
@@ -83,7 +64,7 @@ body{
   font-weight: bold;
 }
 #navbar > ul > li.dropdown.open > ul{
-      background: #1d1e21/* 2B3032 *//* #2c3e50 */;
+      background: #1d1e21;
 }
 #navbar > ul > li.dropdown.open > a:focus{
       background-color: black;  
@@ -112,4 +93,11 @@ body{
 .radio-spaced label{
   padding-left: 10px;
   padding-right: 10px;
+}
+.dimMargin{
+  margin-top: -5px;
+  margin-bottom: : -5px;
+}
+.clearMargin{
+  margin:10px 0 10px 0;
 }
