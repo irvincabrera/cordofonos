@@ -1,4 +1,4 @@
-@(title: String,styles: Html,displayMenu:Boolean)(content: Html)
+@(title: String,styles: Html, scripts : Html, displayMenu:Boolean)(content: Html)
 
 <!DOCTYPE html>
 <html lang="es">
@@ -10,7 +10,7 @@
         <div class="contentWrapper panel panel-default col-md-offset-2 col-md-8 col-xs-12">
             @content
         </div>
-        @layouts.templates.footer()        
-        <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+        @layouts.templates.footer()
+        @layouts.templates._scripts(scripts)
     </body>
 </html>

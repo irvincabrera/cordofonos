@@ -2,6 +2,11 @@
 @styles = {
 	
 }
-@layouts.main("Crear Orden de Servicio",styles,false){
+
+@scripts = {
+	<script src="@routes.Assets.versioned("javascripts/app/ordenServicio/create/create-orden.js")"> </script>
+	
+}
+@layouts.main("Crear Orden de Servicio",styles,scripts,false){
 	@formCreate()	
 }
