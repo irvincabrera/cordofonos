@@ -7,12 +7,12 @@
 			this.render;
 		},
 		loadDom: function () {
-			var _this = this;
+			this
 			this.$otroInstrumento		= $('#otroInstrumento');
-			this.$otroInstrumentoInput	= $('#otroInstrumentoInput');
+			//this.$otroInstrumentoInput	= $('#otroInstrumentoInput');
 		},
 		binder: function () {
-			this.$otroInstrumento.on('click',$otroInstrumentoInput.show());
+			this.$otroInstrumento.on('click',(this.$otroInstrumentoInput.attr('style','display:block;')));
 		},
 		render: function () {
 			// body...
