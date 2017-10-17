@@ -55,9 +55,7 @@
 			 	$('#' +$lala.val()).slideUp(400);
 			}
 
-			// if ( this.$checkboxInspeccion.filter(':checked').val() == name) {
-			// } else{
-			// }
+	
 
 		}
 	}
