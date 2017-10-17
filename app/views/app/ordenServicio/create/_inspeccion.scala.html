@@ -1,10 +1,11 @@
 @(
+	id 		: String,
 	tipo	: String,
 	labels	: Array[String]	
 )
 
 
-	<div class="row" id="accionEntonacion" >			
+	<div class="row" id="@id" style="display:none;">			
 		<div class="col-sm-12 col-md-12 dimMargin">
 			<legend><h4>@tipo</h4></legend>
 
@@ -15,20 +16,28 @@
 			
 			<div class="radio  clearfix col-md-4 col-sm-4">
 				<div class="col-md-3 col-sm-3">
-					<input type="radio" name="funda" value="Óptimas Condiciones">
-					<label for="funda">B</label>
+					<label>
+						<input type="radio" name="funda" value="Óptimas Condiciones">
+						B
+					</label>
 				</div>
 				<div class="col-md-3 col-sm-3">
-					<input type="radio" name="funda" value="Puede requerir Atención">
-					<label for="funda">R</label>
+					<label>
+						<input type="radio" name="funda" value="Puede requerir Atención">
+						R
+					</label>
 				</div>
 				<div class="col-md-3 col-sm-3">
-					<input type="radio" name="funda" value="Atención Inmediata">
-					<label for="funda">M</label>
+					<label>
+						<input type="radio" name="funda" value="Atención Inmediata">
+						M
+					</label>
 				</div>
 				<div class="col-md-3 col-sm-3">
-					<input type="radio" name="funda" value="Anotaciones">
-					<label for="funda">*</label>
+					<label>
+						<input type="radio" name="funda" value="Anotaciones">
+						*
+					</label>
 				</div>
 			</div>
 		}
