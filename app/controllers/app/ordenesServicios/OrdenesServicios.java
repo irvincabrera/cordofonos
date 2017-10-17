@@ -33,5 +33,7 @@ public class OrdenesServicios extends Controller {
     //     flash("success", "OrdenServicio " + ordenForm.get().id + " ha sido registrada");
     //     return redirect(routes.HomeController.index());
     // }
-
+    public Result buscador() {
+        return ok(views.html.app.ordenServicio.buscadorOrdenServ.indexBuscador.render());
+    }
 }

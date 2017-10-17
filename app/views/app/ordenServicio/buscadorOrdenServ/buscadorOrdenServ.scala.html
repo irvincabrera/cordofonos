@@ -1,0 +1,63 @@
+<div class="col-md-12">
+	<div class="row">
+		<form class="form-horizontal">
+			<div class="form-group">
+	    		<label for="selectB" class="col-md-12">Tipo de busqueda:</label>
+	    		<div class="col-md-3">
+		    		<select class="form-control" id="selectB">
+		      			<option>Todo</option>
+		      			<option>Orden de servicio</option>
+		      			<option>Cliente</option>
+		      			<option>Fecha</option>
+		    		</select>
+	    		</div>	
+	  		</div>
+			<div class="form-group">
+	    		<label for="buscador" class="col-md-12">Buscador:</label>
+	    		<div class="col-md-6">
+	      			<input type="text" class="form-control" id="buscador" placeholder="Buscador">
+	   			</div>
+	   			<div class="col-md-6">
+	   				<button type="submit" class="btn btn-primary">Buscar</button>
+	   			</div>
+	  		</div>
+		</form>
+	</div>
+	<div class="row space"></div>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th># de orden</th>
+					<th>Cliente</th>
+					<th>Fecha</th>
+					<th>Instrumento</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">01</th>
+					<td>Mark</td>
+					<td>12/02/1993</td>
+					<td>Guitarra</td>
+					<td><button type="submit" class="btn btn-primary">Ver</button> <button type="submit" class="btn btn-warning">Editar</button></td>
+				</tr>
+				<tr>
+					<th scope="row">02</th>
+					<td>Jacob</td>
+					<td>12/02/1993</td>
+					<td>Bajo</td>
+					<td><button type="submit" class="btn btn-primary">Ver</button> <button type="submit" class="btn btn-warning">Editar</button></td>
+				</tr>
+				<tr>
+					<th scope="row">03</th>
+					<td>Larry</td>
+					<td>12/02/1993</td>
+					<td>Amplificador</td>
+					<td><button type="submit" class="btn btn-primary">Ver</button> <button type="submit" class="btn btn-warning">Editar</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
