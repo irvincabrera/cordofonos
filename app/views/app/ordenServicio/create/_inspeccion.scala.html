@@ -1,0 +1,36 @@
+@(
+	tipo	: String,
+	labels	: Array[String]	
+)
+
+
+	<div class="row" id="accionEntonacion" >			
+		<div class="col-sm-12 col-md-12 dimMargin">
+			<legend><h4>@tipo</h4></legend>
+
+		 @for( i<- 0 to (labels.length -1)) {
+			<div class="col-md-offset-2 col-sm-offset-2 col-md-4 col-sm-4 clearfix">
+				<label class="clearMargin">@labels(i)</label>
+			</div>
+			
+			<div class="radio  clearfix col-md-4 col-sm-4">
+				<div class="col-md-3 col-sm-3">
+					<input type="radio" name="funda" value="Óptimas Condiciones">
+					<label for="funda">B</label>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<input type="radio" name="funda" value="Puede requerir Atención">
+					<label for="funda">R</label>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<input type="radio" name="funda" value="Atención Inmediata">
+					<label for="funda">M</label>
+				</div>
+				<div class="col-md-3 col-sm-3">
+					<input type="radio" name="funda" value="Anotaciones">
+					<label for="funda">*</label>
+				</div>
+			</div>
+		}
+		</div>
+	</div>
