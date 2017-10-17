@@ -90,6 +90,11 @@ public class OrdenServicio extends Model{
 
 		return noOrden;
 	}
+
+	public static List<OrdenServicio> list(){
+		List<OrdenServicio> orden = OrdenServicio.find.all();
+		return orden;
+	}
 	/******************************************/
 	/******************CRUD********************/
 	/******************************************/

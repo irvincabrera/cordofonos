@@ -5,7 +5,7 @@ ordenServicio: OrdenServicio = null
 	<div class="row ">
 		<div class="col-md-12">
 			<h2><strong>Orden de Servicio</strong></h2>
-			<h4>Número de Orden <strong style="color: #E22C2C; vertical-align: bottom; background-color: #dff0d8;">0000</strong></h4>
+			<h4>Número de Orden <span id="numOrden" style="color: #E22C2C; vertical-align: bottom; background-color: #dff0d8;">0000</span></h4>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
@@ -28,7 +28,8 @@ ordenServicio: OrdenServicio = null
 				<legend><h3>Cliente</h3></legend>
 				<div class="row">
 					<div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6">
-						<button class="btn">Buscar Cliente</button>
+						<!-- BOTON MODAL -->
+						<button type="button" class="btn" data-toggle="modal" data-target="#buscarCliente">Buscar Cliente</button>
 					</div>
 					<hr>
 				</div>
@@ -262,8 +263,15 @@ ordenServicio: OrdenServicio = null
 		<div class="row">
 			<div class="col-md-12">
 				<legend><h3>Condiciones</h3></legend>
-				<div id="condicionesFrente " class="panel panel-default col-md-6" style="width: 300px; height: 300px;">
-					<input type="file" name="adjunto" id="adjunto">
+				<div id="condicionesFrente " class="panel panel-default col-md-6">
+					<div style="width: 300px; height: 300px;">
+
+					</div>
+					<div class="col-md-offset-2">
+						<input type="file" name="adjunto" id="adjunto">
+						
+					</div>
+					
 				</div>
 				<div id="condicionesTras " class="panel panel-default col-md-6" style="width: 300px; height: 300px;">
 					
@@ -274,7 +282,42 @@ ordenServicio: OrdenServicio = null
 		<div class="row">
 			<div class="col-md-12">
 				<legend><h3>Servicios a realizar</h3></legend>
-				
+				<div class="row">
+					<div class="col-md-6">
+						<select name="" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+						</select>	
+					</div>
+					<div class="col-md-6">
+						<button class="btn btn-default">Agregar Servicio</button>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="row">
+					<div class=" col-md-12">
+						<table class="table" id="tabla-prueba">
+							<thead>
+								<tr>
+									<th>a</th>
+									<th>b</th>
+									<th>c</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>lolas</td>
+									<td>lalas</td>
+									<td>lelas</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>	
+					
+				</div>
 			</div>
 		</div>
 
@@ -295,3 +338,5 @@ ordenServicio: OrdenServicio = null
 		</div>
 	</div>
 </div>
+
+@app.ordenServicio.modal._modal("Buscar Cliente")
