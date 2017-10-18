@@ -49,7 +49,15 @@ public class OrdenServicio extends Model{
 
 	public String indicacionesEncordar;
 
-	public String condiciones;
+	public String anotaciones;
+	
+	@Column(columnDefinition = "LONGBLOB")	
+	public String condicionesFrente;
+	
+	@Column(columnDefinition = "LONGBLOB")
+	public String condicionesReverso;
+
+	public String firmaElectronica;
 
 	@Column(precision = 7, scale = 2)
     public BigDecimal total;

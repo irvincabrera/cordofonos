@@ -22,6 +22,7 @@
 			this.$numOrden				= this.$formOrden.find('#numOrden');
 			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
 			this.$clearCheck			= this.$formOrden.find('.clearCheck');
+			this.$firmaElectronica		= this.$formOrden.find('#firmaElectronica');
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
@@ -31,6 +32,7 @@
 		render: function () {
 			this.$tabla.DataTable();
 			this.renderCount();
+			// $('#firmaElectronica').jSignature();
 		},
 		showOtro: function () {
 			if (this.$radiosInstrumento.filter(':checked').val() =='Otro') {
