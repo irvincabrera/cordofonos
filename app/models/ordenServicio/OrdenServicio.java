@@ -5,8 +5,9 @@ import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import play.libs.Json;
 import javax.persistence.*;
+
 
 import play.Logger;
 
@@ -91,9 +92,21 @@ public class OrdenServicio extends Model{
 		return noOrden;
 	}
 
-	public static List<OrdenServicio> list(){
-		List<OrdenServicio> orden = OrdenServicio.find.all();
-		return orden;
+	public static int list(){
+
+		 int orden = OrdenServicio.find.findRowCount();
+		// List<OrdenServicio> orden = OrdenServicio.find.all();
+		// Logger.debug("===> Orden: "+orden);
+		// if (orden.isNull()) {
+		// 	Logger.debug("isNull");
+		// 	JsonObject obj = Json.createObjectBuilder()
+		// 		.add()
+		// 		.build("numOrden","9999");
+		// 	return  obj;
+		// }else{
+			 // JsonObject nulo = Json.createObjectBuilder().build();
+			return orden;
+		// }
 	}
 	/******************************************/
 	/******************CRUD********************/

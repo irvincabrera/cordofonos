@@ -20,7 +20,7 @@ public class OrdenesServicios extends Controller {
     }
 
     public Result list() {
-    
+        Logger.debug("=====JSON: "+Json.toJson(OrdenServicio.list()));
         return ok(Json.toJson(OrdenServicio.list()));
     }
 

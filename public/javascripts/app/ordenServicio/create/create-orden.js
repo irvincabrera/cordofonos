@@ -20,6 +20,7 @@
 			this.$checkboxInspeccion	= this.$formOrden.find('input[name=inspeccion]');
 			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
 			this.$numOrden				= this.$formOrden.find('#numOrden');
+			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
@@ -59,17 +60,55 @@
 			}
 		},
 		renderCount: function(){
-			// var ajax = new XMLHttpRequest();
-			// ajax.onreadystatechange = function() {
-			// 	if (ajax.readyState == 4 && ajax.status == 200) {
-			// 		var response = ajax.responseText;
-			// 	}
-			// };
-			// ajax.open(GET, '/count-ordenes-servicio', true);
-			// ajax.setRequestHeader("Content-type", "application/json");
-			// ajax.send(data);
-		}
-	}
+			var that = this;
+		// 	var ajax = new XMLHttpRequest();
+		// 	ajax.onreadystatechange = function() {
+		// 		console.log(ajax);
+		// 		console.log('readyState: '+ajax.readyState+" status: "+ajax.status);
+		// 		if (ajax.readyState == 4 && ajax.status == 200) {
+		// 			var response = ajax.responseText;
+		// 			console.log('ajax.responseText',ajax.responseText);
+		// 		}
+		// 	};
+		// 	ajax.open('GET', '/count-ordenes-servicio', true);
+			
+		// 	ajax.send();
+			$.ajax({
+				url: '/count-ordenes-servicio',
+				type: 'GET',
+				dataType: 'json',
+				data: {}
+			})
+			.done(function(data) {
+				console.log("success");
+				if( data == 0 ) {
+					// console.log("Data no es Nula!!",data);
+					// if (data == []) {
+						that.$numOrden.text('1000');
+						
+					// }else{
+					// 	that.$numOrden.text('some text');
+
+					// }
+				} else {
+					that.$numOrden.text(data+1000);
+				}
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("/count-ordenes-servicio: complete");
+			});
+			
+			that.$fechaRecepcion.text(currentdate);
+		 }
+
+
+	} 
+	
 	
 	createOrden.init();
+	// console.log("currentdate: ",currentdate);
+
 })();
