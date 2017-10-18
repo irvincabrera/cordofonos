@@ -21,6 +21,7 @@
 			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
 			this.$numOrden				= this.$formOrden.find('#numOrden');
 			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
+			this.$clearCheck			= this.$formOrden.find('.clearCheck');
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
@@ -57,22 +58,11 @@
 			} else {
 				console.log("NO Checado");
 			 	$('#' +$lala.val()).slideUp(400);
+			 	this.$clearCheck.prop('checked',false);
 			}
 		},
 		renderCount: function(){
 			var that = this;
-		// 	var ajax = new XMLHttpRequest();
-		// 	ajax.onreadystatechange = function() {
-		// 		console.log(ajax);
-		// 		console.log('readyState: '+ajax.readyState+" status: "+ajax.status);
-		// 		if (ajax.readyState == 4 && ajax.status == 200) {
-		// 			var response = ajax.responseText;
-		// 			console.log('ajax.responseText',ajax.responseText);
-		// 		}
-		// 	};
-		// 	ajax.open('GET', '/count-ordenes-servicio', true);
-			
-		// 	ajax.send();
 			$.ajax({
 				url: '/count-ordenes-servicio',
 				type: 'GET',
@@ -82,14 +72,7 @@
 			.done(function(data) {
 				console.log("success");
 				if( data == 0 ) {
-					// console.log("Data no es Nula!!",data);
-					// if (data == []) {
-						that.$numOrden.text('1000');
-						
-					// }else{
-					// 	that.$numOrden.text('some text');
-
-					// }
+					that.$numOrden.text('1000');
 				} else {
 					that.$numOrden.text(data+1000);
 				}
@@ -100,15 +83,12 @@
 			.always(function() {
 				console.log("/count-ordenes-servicio: complete");
 			});
-			
-			that.$fechaRecepcion.text(currentdate);
+			this.$fechaRecepcion.text(this.formatDate(currentdate));
+		 },
+		 formatDate: function(date){
+			var fechaFormateada = date.getDay()+"-"+date.getMonth()+"-"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
+			return fechaFormateada;
 		 }
-
-
-	} 
-	
-	
+	} 	
 	createOrden.init();
-	// console.log("currentdate: ",currentdate);
-
 })();
