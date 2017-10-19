@@ -2,389 +2,396 @@
 ordenServicio: OrdenServicio = null
 )
 <div id="formOrdenServicio">
-	<div class="row ">
-		<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
-			<h2><strong>Orden de Servicio</strong></h2>
-		</div>
+	<!-- <div class="panel panel-default"> -->
+		<div class="row ">
+			<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
+				<h2><strong>Orden de Servicio</strong></h2>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
+						<h4>Número de Orden: <strong><span id="numOrden" class="label label-danger">0000</span></strong></h4>
+						<h4>Fecha de recepción: <span id="fechaRecepcion" class="label label-danger">00/00/0000 00:00</span></h4>
+						<h4>Inspección Realizada por: <span id="realizadaPor" class="label label-success">@Usuario.getByName(session().get("userName")).obtenNombre</span></h4>
+					</div>
+					<div class="col-sm-offset-6 col-sm-6 col-xs-12" >
+						<h4>Fecha de Entrega: <span id="fechaEntrega" class="label label-danger">00-00-0000 00:00</span></h4>
+					</div>	
+				</div>
+			</div>
+		</div>	
+	<!-- </div> -->
+	
+	<br>
+
+	<!-- <div class="panel panel-default"> -->
 		<div class="row">
 			<div class="col-md-12">
-				<div class="panel panel-default col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
-					<h4>Número de Orden: <strong><span id="numOrden" class="label label-danger">0000</span></strong></h4>
-					<h4>Fecha de recepción: <span id="fechaRecepcion" class="label label-danger">00/00/0000</span></h4>
-					<h4>Inspección Realizada por: <span id="realizadaPor" class="label label-success"></span></h4>
-				</div>
-				<div class=" panel panel-default col-sm-offset-6 col-sm-6 col-xs-12" >
-					<h4>Entrega (TODO)</h4>
-				</div>	
-			</div>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-12">
-			
-				<legend><h3>Cliente</h3></legend>
-				<div class="row">
-					<div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6">
-						<!-- BOTON MODAL -->
-						<button type="button" class="btn" data-toggle="modal" data-target="#buscarCliente">Buscar Cliente</button>
-					</div>
-					<hr>
-				</div>
-
 				
-				<!-- <div class="col-md-12"> -->
-					<div class=" col-md-6 col-sm-6">
-						<label for="">Nombre del Cliente:</label>
-						<input type="text" class="form-control">
-						<label for="">Ciudad:</label>
-						<input type="text" class="form-control">
-						<label for="">Teléfono:</label>
-						<input type="text" class="form-control">
+					<legend><h3>Cliente</h3></legend>
+					<div class="row">
+						<div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-9 col-xs-6 col-xs-offset-6">
+							<!-- BOTON MODAL -->
+							<button type="button" class="btn" data-toggle="modal" data-target="#buscarCliente">Buscar Cliente</button>
+						</div>
+						<hr>
 					</div>
-					<div class=" col-md-6 col-sm-6">
-						<label for="">Email:</label>
-						<input type="text" class="form-control">
-						<label for="">WhatsApp:</label>
-						<input type="text" class="form-control">
-						<label for="">Facebook:</label>
-						<input type="text" class="form-control">
-						<!-- </div> -->
-					</div>
-				
-			</div>
-		</div>
 
-		<div>
-			<div class="col-md-12">
-				<legend><h3>Instrumento</h3></legend>
-				<h4>Tipo de instrumento</h4>
-				<div class="row">
-					<div id="tipoInstrumento" class="col-md-12  col-sm-12">
-						<div class="col-md-6 col-sm-6">
+					
+					<!-- <div class="col-md-12"> -->
+						<div class=" col-md-6 col-sm-6">
+							<label for="">Nombre del Cliente:</label>
+							<input type="text" class="form-control">
+							<label for="">Ciudad:</label>
+							<input type="text" class="form-control">
+							<label for="">Teléfono:</label>
+							<input type="text" class="form-control">
+						</div>
+						<div class=" col-md-6 col-sm-6">
+							<label for="">Email:</label>
+							<input type="text" class="form-control">
+							<label for="">WhatsApp:</label>
+							<input type="text" class="form-control">
+							<label for="">Facebook:</label>
+							<input type="text" class="form-control">
+							<!-- </div> -->
+						</div>
+					
+				</div>
+			</div>
+
+			<div>
+				<div class="col-md-12">
+					<legend><h3>Instrumento</h3></legend>
+					<h4>Tipo de instrumento</h4>
+					<div class="row">
+						<div id="tipoInstrumento" class="col-md-12  col-sm-12">
+							<div class="col-md-6 col-sm-6">
+								<div>
+									<label>
+									<input type="radio" name="instrument" value="Guitarra Eléctrica">
+									Guitarra Eléctrica
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="radio" name="instrument" value="Guitarra Acústica">
+									Guitarra Acústica
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="radio" name="instrument" id="otroInstrumento" value="Otro">
+									Otro
+									</label>
+								</div>
+							</div>
+
+							<div class="col-md-6 col-sm-6">
+								<div>
+									<label>
+									<input type="radio" name="instrument" value="Bajo Eléctrico">
+									Bajo Eléctrico
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="radio" name="instrument" value="Bajo Acústico">
+									Bajo Acústico
+									</label>
+								</div>
+							</div>
+							<div id="divOtroInstrumento" class="col-md-12" style="display: none;">
+								<div>
+									<input id="instrumentoInput" type="text" name="instrument" class="form-control">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- style="display: none;" -->
+					<div id="tipoInstrumentoInput" class="row input clearMargin">
+						<div  class=" col-md-6  col-sm-6" >
+							<label for="">Marca:</label>
+							<input type="text" class="form-control">
+							<label for="">Modelo:</label>
+							<input type="text" class="form-control">
+							<label for="">Núm. Serie:</label>
+							<input type="text" class="form-control">
+						</div>
+						<div  class=" col-md-6 col-sm-6" >
+							<label for="">Color:</label>
+							<input type="text" class="form-control">
+							<label for="">Fecha de Producción:</label>
+							<input type="text" class="form-control">
+							<label for="">Almacén:</label>
+							<input type="text" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div id="recibidoEn" class="row">
+					<div class="col-md-12 col-sm-12">
+						<legend><h4>Recibido en</h4></legend>
+						<div class="col-md-offset-3 col-md-6 col-sm-6 radio">
 							<div>
 								<label>
-								<input type="radio" name="instrument" value="Guitarra Eléctrica">
-								Guitarra Eléctrica
+								<input type="radio" name="recibido" value="Estuche">
+								Estuche
 								</label>
 							</div>
 							<div>
 								<label>
-								<input type="radio" name="instrument" value="Guitarra Acústica">
-								Guitarra Acústica
+								<input type="radio" name="recibido" value="Semi">
+								Semi
+								</label>
+							</div>
+						<!-- </div>
+
+						<div class="col-md-6 col-sm-6"> -->
+							<div>
+								<label>
+								<input type="radio" name="recibido" value="Funda">
+								Funda
 								</label>
 							</div>
 							<div>
 								<label>
-								<input type="radio" name="instrument" id="otroInstrumento" value="Otro">
+								<input type="radio" name="recibido" value="Otro">
 								Otro
 								</label>
 							</div>
 						</div>
-
-						<div class="col-md-6 col-sm-6">
+						<div id="divOtroContenedor" class="col-md-offset-3 col-md-6" style="display: none;">
 							<div>
-								<label>
-								<input type="radio" name="instrument" value="Bajo Eléctrico">
-								Bajo Eléctrico
-								</label>
+								<input id="contenedorInput" type="text" name="recibido" class="form-control">
 							</div>
-							<div>
-								<label>
-								<input type="radio" name="instrument" value="Bajo Acústico">
-								Bajo Acústico
-								</label>
-							</div>
-						</div>
-						<div id="divOtroInstrumento" class="col-md-12" style="display: none;">
-							<div>
-								<input id="instrumentoInput" type="text" name="instrument" class="form-control">
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- style="display: none;" -->
-				<div id="tipoInstrumentoInput" class="row input clearMargin">
-					<div  class=" col-md-6  col-sm-6" >
-						<label for="">Marca:</label>
-						<input type="text" class="form-control">
-						<label for="">Modelo:</label>
-						<input type="text" class="form-control">
-						<label for="">Núm. Serie:</label>
-						<input type="text" class="form-control">
-					</div>
-					<div  class=" col-md-6 col-sm-6" >
-						<label for="">Color:</label>
-						<input type="text" class="form-control">
-						<label for="">Fecha de Producción:</label>
-						<input type="text" class="form-control">
-						<label for="">Almacén:</label>
-						<input type="text" class="form-control">
-					</div>
-				</div>
-			</div>
-			<div id="recibidoEn" class="row">
-				<div class="col-md-12 col-sm-12">
-					<legend><h4>Recibido en</h4></legend>
-					<div class="col-md-offset-3 col-md-6 col-sm-6 radio">
-						<div>
-							<label>
-							<input type="radio" name="recibido" value="Estuche">
-							Estuche
-							</label>
-						</div>
-						<div>
-							<label>
-							<input type="radio" name="recibido" value="Semi">
-							Semi
-							</label>
-						</div>
-					<!-- </div>
-
-					<div class="col-md-6 col-sm-6"> -->
-						<div>
-							<label>
-							<input type="radio" name="recibido" value="Funda">
-							Funda
-							</label>
-						</div>
-						<div>
-							<label>
-							<input type="radio" name="recibido" value="Otro">
-							Otro
-							</label>
-						</div>
-					</div>
-					<div id="divOtroContenedor" class="col-md-offset-3 col-md-6" style="display: none;">
-						<div>
-							<input id="contenedorInput" type="text" name="recibido" class="form-control">
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div class="col-md-12">
-				<legend><h3>Inspección e Inventario</h3></legend>
-				<div class="row checkbox checkbox-danger clearMargin">
-					<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
-						<div class="col-md-6">
-							<div>
-								<label>
-								<input type="checkbox" name="inspeccion" value="accionEntonacion">
-								Acción y Entonación
-								</label>
-							</div>
-							<div>
-								<label>
-								<input type="checkbox" name="inspeccion" value="condicionesAjuste">
-								Condiciones para Ajuste
-								</label>
-							</div>
-							<div>
-								<label>
-								<input type="checkbox" name="inspeccion" value="electronica">
-								Electrónica
-								</label>
-							</div>
-							
-						</div>
-						<div class="col-md-6">
-							<div>
-								<label>
-								<input type="checkbox" name="inspeccion" value="herrajes">
-								Herrajes
-								</label>
-							</div>
-							<div>
-								<label>
-								<input type="checkbox" name="inspeccion" value="plasticos">
-								Plásticos, Tapas y Placas
-								</label>
-							</div>
-						
-					</div>
-						
-					</div>
-				</div>
-
-				@_inspeccion("accionEntonacion","Acción y Entonación",
-							Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación")
-							)
-				@_inspeccion("condicionesAjuste","Condiciones para Ajuste",
-							Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo")
-							)
-				@_inspeccion("electronica","Electrónica",
-							Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería")
-							)
-				@_inspeccion("herrajes","Herrajes",
-							Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas")
-							)
-				@_inspeccion("plasticos","Plásticos / Tapas / Placas",
-							Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería")
-							)
-
-			</div>
-		
-		</div>
-
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<legend><h3>Indicaciones del Cliente</h3></legend>
-				<div class="row">
-					<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
-						<label for="">Encordar con:</label>
-						<input type="text" class="form-control">
-						<label for="">Afinación:</label>
-						<input type="text" class="form-control">
-					</div>	
-					<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
-						<label for="">Acción:</label>
-						<input type="text" class="form-control">
-					</div>		
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<legend><h3>Anotaciones</h3></legend>
-				<div class="col-md-6 col-sm-6">
-					<textarea class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
-						
-					</textarea>
-				</div>
-				
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<legend><h3>Condiciones</h3></legend>
-				<div class="row clearfix">
-					<div class="row">
-						<div id="condicionesFrente " class="panel panel-default col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-							<h5>Condiciones Frente</h5>
-							<div style="width: 200px; height: 200px;">
-
-							</div>
-						</div>
-						<div id="condicionesTras " class="panel panel-default col-md-4 col-sm-4 col-xs-8 col-xs-offset-2">
-							<h5>Condiciones Reverso</h5>
-							<div style="width: 200px; height: 200px;">
+			<hr>
+			<div class="row">
+				<div class="col-md-12">
+					<legend><h3>Inspección e Inventario</h3></legend>
+					<div class="row checkbox checkbox-danger clearMargin">
+						<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+							<div class="col-md-6">
+								<div>
+									<label>
+									<input type="checkbox" name="inspeccion" value="accionEntonacion">
+									Acción y Entonación
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="checkbox" name="inspeccion" value="condicionesAjuste">
+									Condiciones para Ajuste
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="checkbox" name="inspeccion" value="electronica">
+									Electrónica
+									</label>
+								</div>
 								
 							</div>
+							<div class="col-md-6">
+								<div>
+									<label>
+									<input type="checkbox" name="inspeccion" value="herrajes">
+									Herrajes
+									</label>
+								</div>
+								<div>
+									<label>
+									<input type="checkbox" name="inspeccion" value="plasticos">
+									Plásticos, Tapas y Placas
+									</label>
+								</div>
+							
 						</div>
-						
+							
+						</div>
 					</div>
+
+					@_inspeccion("accionEntonacion","Acción y Entonación",
+								Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación")
+								)
+					@_inspeccion("condicionesAjuste","Condiciones para Ajuste",
+								Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo")
+								)
+					@_inspeccion("electronica","Electrónica",
+								Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería")
+								)
+					@_inspeccion("herrajes","Herrajes",
+								Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas")
+								)
+					@_inspeccion("plasticos","Plásticos / Tapas / Placas",
+								Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería")
+								)
+
+				</div>
+			
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<legend><h3>Indicaciones del Cliente</h3></legend>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
-							<input type="file" name="adjunto" id="adjuntoFrente">
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<input type="file" name="adjunto" id="adjuntoReverso">
-						</div>
-						
+						<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
+							<label for="">Encordar con:</label>
+							<input type="text" class="form-control">
+							<label for="">Afinación:</label>
+							<input type="text" class="form-control">
+						</div>	
+						<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
+							<label for="">Acción:</label>
+							<input type="text" class="form-control">
+						</div>		
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<br>
-
-		<div class="row">
-			<div class="col-md-12">
-				<legend><h3>Servicios a realizar</h3></legend>
-				<div class="row">
-					<div class="col-md-6">
-						<select name="" id="" class="form-control">
-				            <option value="" disabled="disabled" selected>Seleccione una opci&oacute;n</option>
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-						</select>	
+			<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<legend><h3>Anotaciones</h3></legend>
+					<div class="col-md-6 col-sm-6">
+						<textarea class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
+							
+						</textarea>
 					</div>
-					<div class="col-md-6">
-						<button class="btn btn-default">Agregar Servicio</button>
-					</div>
-				</div>
-
-				<br>
-
-				<div class="row">
-					<div class=" col-md-12">
-						<table class="table" id="tabla-prueba">
-							<thead>
-								<tr>
-									<th>a</th>
-									<th>b</th>
-									<th>c</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>lolas</td>
-									<td>lalas</td>
-									<td>lelas</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>	
 					
 				</div>
 			</div>
-		</div>
-		
-		<br>
-
-		<div class="row">
-			<div class="col-md-12">
-				<legend><h3>Firma del Cliente</h3></legend>
+			
+			<div class="row">
 				<div class="col-md-12">
-					<div id="firmaElectronica"> 
-						
+					<legend><h3>Condiciones</h3></legend>
+					<div class="row clearfix">
+						<div class="row">
+							<div id="condicionesFrente " class="panel panel-default col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+								<h5>Condiciones Frente</h5>
+								<div style="width: 200px; height: 200px;">
+
+								</div>
+							</div>
+							<div id="condicionesTras " class="panel panel-default col-md-4 col-sm-4 col-xs-8 col-xs-offset-2">
+								<h5>Condiciones Reverso</h5>
+								<div style="width: 200px; height: 200px;">
+									
+								</div>
+							</div>
+							
+						</div>
+						<div class="row">
+							<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
+								<input type="file" name="adjunto" id="adjuntoFrente">
+							</div>
+							<div class="col-md-6 col-sm-6">
+								<input type="file" name="adjunto" id="adjuntoReverso">
+							</div>
+							
+						</div>
 					</div>
-					<div  id="demotools" class="text-center col-md-6 col-md-offset-3">
-						<!-- <span><b>Extraer data de firma como:</b></span>
-						<select class="form-control">
-							<option value="" disabled="disabled" selected>Selecciona una opci&oacute;n</option>
-							<option value="default">default</option>
-							<option value="native">native</option><option value="image">image</option>
-							<option value="base30">base30</option>
-							<option value="image/jsignature;base30">image/jsignature;base30</option>
-							<option value="svg">svg</option>
-							<option value="image/svg+xml">image/svg+xml</option>
-							<option value="svgbase64">svgbase64</option>
-							<option value="image/svg+xml;base64">image/svg+xml;base64</option>
-						</select>
-						<span><b> o </b></span> -->
-						<input class="btn" id="limpiarBtn" type="button" value="Limpiar">
+				</div>
+			</div>
+			
+			<br>
+
+			<div class="row">
+				<div class="col-md-12">
+					<legend><h3>Servicios a realizar</h3></legend>
+					<div class="row">
+						<div class="col-md-6">
+							<select name="" id="" class="form-control">
+					            <option value="" disabled="disabled" selected>Seleccione una opci&oacute;n</option>
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+							</select>	
+						</div>
+						<div class="col-md-6">
+							<button class="btn btn-default">Agregar Servicio</button>
+						</div>
 					</div>
-					<div id="firmaElectronicaPrint"> 
+
+					<br>
+
+					<div class="row">
+						<div class=" col-md-12">
+							<table class="table" id="tabla-prueba">
+								<thead>
+									<tr>
+										<th>a</th>
+										<th>b</th>
+										<th>c</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>lolas</td>
+										<td>lalas</td>
+										<td>lelas</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>	
 						
 					</div>
 				</div>
 			</div>
+			
+			<br>
+
+			<div class="row">
+				<div class="col-md-12">
+					<legend><h3>Firma del Cliente</h3></legend>
+					<div class="col-md-12">
+						<div id="firmaElectronica"> 
+							
+						</div>
+						<div  id="demotools" class="text-center col-md-6 col-md-offset-3">
+							<!-- <span><b>Extraer data de firma como:</b></span>
+							<select class="form-control">
+								<option value="" disabled="disabled" selected>Selecciona una opci&oacute;n</option>
+								<option value="default">default</option>
+								<option value="native">native</option><option value="image">image</option>
+								<option value="base30">base30</option>
+								<option value="image/jsignature;base30">image/jsignature;base30</option>
+								<option value="svg">svg</option>
+								<option value="image/svg+xml">image/svg+xml</option>
+								<option value="svgbase64">svgbase64</option>
+								<option value="image/svg+xml;base64">image/svg+xml;base64</option>
+							</select>
+							<span><b> o </b></span> -->
+							<input class="btn" id="limpiarBtn" type="button" value="Limpiar">
+						</div>
+						<div id="firmaElectronicaPrint"> 
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<br>
+
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="text-center col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+						 <button class="btn btn-danger">
+						 	Guardar
+						 </button>
+						 <button class="btn btn-default">
+						 	Cancelar
+						 </button>
+					</div>			
+				</div>
+			</div>
+
+			<br>
+
 		</div>
 		
-		<br>
-
-		<div class="row">
-			<div class="col-md-12 col-sm-12 col-xs-12">
-				<div class="text-center col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-					 <button class="btn btn-danger">
-					 	Guardar
-					 </button>
-					 <button class="btn btn-default">
-					 	Cancelar
-					 </button>
-				</div>			
-			</div>
-		</div>
-
-		<br>
-
-	</div>
+	<!-- </div> -->
 </div>
 
 @app.ordenServicio.modal._modal("Buscar Cliente")
