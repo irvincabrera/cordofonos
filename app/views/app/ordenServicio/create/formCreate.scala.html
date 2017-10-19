@@ -177,9 +177,9 @@ ordenServicio: OrdenServicio = null
 				</div>
 			</div>
 
-			<div id="inspeccionInventario" class="row tab-pane fade">
-				<div class="col-md-12">
-					<legend><h3>Inspección e Inventario</h3></legend>
+			<div id="inspeccionInventario" class="col-md-12 tab-pane fade">
+				<legend><h3>Inspección e Inventario</h3></legend>
+				<div class="row">
 					<div class="row checkbox checkbox-danger clearMargin">
 						<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
 							<div class="col-md-6">
@@ -285,9 +285,9 @@ ordenServicio: OrdenServicio = null
 				</div>
 			</div>
 
-			<div id="indicaciones" class="row tab-pane fade">
+			<div id="indicaciones" class="col-md-12 tab-pane fade">
+				<legend><h3>Indicaciones del Cliente</h3></legend>
 				<div class="col-md-12 col-sm-12">
-					<legend><h3>Indicaciones del Cliente</h3></legend>
 					<div class="row">
 						<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
 							<label for="">Encordar con:</label>
@@ -305,7 +305,7 @@ ordenServicio: OrdenServicio = null
 			
 			<br>
 
-			<div id="servicios" class="row tab-pane fade">
+			<div id="servicios" class="col-md-12 tab-pane fade">
 				<div class="col-md-12">
 					<legend><h3>Servicios a realizar</h3></legend>
 					<div class="row">
@@ -350,10 +350,11 @@ ordenServicio: OrdenServicio = null
 			
 			<br>
 
-			<div class="row">
-				<div class="col-md-12">
+			<div class="col-md-12">
+					<br>
 					<legend><h3>Firma del Cliente</h3></legend>
-					<div class="col-md-12">
+				<div class="col-md-12">
+					<div class="row">
 						<div id="firmaElectronica"> 
 							
 						</div>
@@ -389,12 +390,12 @@ ordenServicio: OrdenServicio = null
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="text-center col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
-						 <button class="btn btn-danger">
+						 <a class="saveBtn btn btn-danger">
 						 	Guardar
-						 </button>
-						 <button class="btn btn-default">
+						 </a>
+						 <a href="@routes.HomeController.index" class="btn btn-default">
 						 	Cancelar
-						 </button>
+						 </a>
 					</div>			
 				</div>
 			</div>

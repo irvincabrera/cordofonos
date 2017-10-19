@@ -25,13 +25,14 @@
 			
 			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
 
-			// Elemtentos Nav Pills
+			this.$saveBtn				= $('#saveBtn');
 			
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
 			this.$radiosRecibido.on('click',this.showOtro.bind(this));
 			this.$checkboxInspeccion.on('click',this.showInspeccion.bind(this));
+			this.$saveBtn.on('click',this.save.bind(this));
 		},
 		render: function () {
 			this.$tabla.DataTable();
@@ -88,12 +89,25 @@
 			.always(function() {
 				console.log("/count-ordenes-servicio: complete");
 			});
-			this.$fechaRecepcion.text(this.formatDate(currentdate));
+			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
 		 },
-		 formatDate: function(date){
-			var fechaFormateada = date.getDay()+"-"+date.getMonth()+"-"+date.getFullYear()+" "+date.getHours()+":"+date.getMinutes();
-			return fechaFormateada;
+		 save: function(){
+		 	that = this;
+			// $.ajax({
+			// 	url: 'orden-servicio/save',
+			// 	type: 'POST',
+			// 	contentType: false, 
+			// 	processData: false,
+			// 	data: new FormData(this.$formOrden)
+			// })
+			// .done(function(response) {
+			// 	console.log(response);
+			// 	// that.render();
+			// })
+			// .fail(function(error) {
+			// 	console.log(error);
+			// });
 		 }
-	} 	
+	}
 	createOrden.init();
 })();
