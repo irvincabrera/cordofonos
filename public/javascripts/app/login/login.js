@@ -1,4 +1,7 @@
 (function () {
+	// var Cookies = new Cookie();
+	// Cookies.set('css', 'value');
+
 	var login = {
 		init: function () {
 			console.log('init');
@@ -20,7 +23,6 @@
 			this.$stylBtn2.on('click', this.switchStyle.bind(this));
 		},
 		render: function () {
-
 		},
 		switchStyle: function (event) {
 						console.log('switchStyle');

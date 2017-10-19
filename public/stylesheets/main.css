@@ -101,3 +101,9 @@ body{
 .clearMargin{
   margin:10px 0 10px 0;
 }
+.print{
+  margin:auto;
+}
+.span-left{
+  text-align: right;
+}

@@ -14,15 +14,22 @@
 	<script src="@routes.Assets.versioned("javascripts/libs/jSignature/jSignature/flashcanvas.js")"></script>
 	<script src="@routes.Assets.versioned("javascripts/libs/jSignature/jSignature/jSignature.min.js")"></script>
 	<script>
+		//Script para div de firma electronica
 	    $(document).ready(function() {
 	        $("#firmaElectronica").jSignature();
 	        $('#limpiarBtn').bind('click', function () {
 	        	$("#firmaElectronica").jSignature('clear');
+	        	$('.print').prop('src','');         	
 	        });
-	        var datapair = $("#firmaElectronica").jSignature("getData", "svgbase64");
-			var i = new Image();
-			i.src = "data:" + datapair[0] + "," + datapair[1];
-			$(i).appendTo($("#firmaElectronicaPrint")); // append the image (SVG) to DOM.
+
+	        $('#guardarFirmaBtn').bind('click', function () {
+	        	$("#firmaElectronicaPrint").remove('img');
+		        var datapair = $("#firmaElectronica").jSignature("getData", "svgbase64");
+				var i = new Image();
+				i.src = "data:" + datapair[0] + "," + datapair[1];
+				// $(i).appendTo($("#firmaElectronicaPrint")); // append the image (SVG) to DOM.
+				$('.print').prop('src',i.src); 
+			})
 	    })
 	</script>
 	

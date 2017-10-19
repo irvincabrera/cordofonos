@@ -9,6 +9,9 @@
 		loadDom: function () {
 			this.$formOrden				= $('#formOrdenServicio');
 			
+			this.$numOrden				= this.$formOrden.find('#numOrden');
+			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
+			
 			this.$radiosInstrumento		= this.$formOrden.find('input[name=instrument]');
 			this.$divOtroInstrumento	= $('#divOtroInstrumento');
 			this.$instrumentoInput		= $('#instrumentoInput');
@@ -18,11 +21,12 @@
 			this.$contenedorInput		= $('#contenedorInput');
 
 			this.$checkboxInspeccion	= this.$formOrden.find('input[name=inspeccion]');
-			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
-			this.$numOrden				= this.$formOrden.find('#numOrden');
-			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
 			this.$clearCheck			= this.$formOrden.find('.clearCheck');
-			this.$firmaElectronica		= this.$formOrden.find('#firmaElectronica');
+			
+			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
+
+			// Elemtentos Nav Pills
+			
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
@@ -32,7 +36,6 @@
 		render: function () {
 			this.$tabla.DataTable();
 			this.renderCount();
-			// $('#firmaElectronica').jSignature();
 		},
 		showOtro: function () {
 			if (this.$radiosInstrumento.filter(':checked').val() =='Otro') {

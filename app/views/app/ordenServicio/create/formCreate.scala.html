@@ -10,12 +10,12 @@ ordenServicio: OrdenServicio = null
 			<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
-						<h4>Número de Orden: <strong><span id="numOrden" class="label label-danger">0000</span></strong></h4>
-						<h4>Fecha de recepción: <span id="fechaRecepcion" class="label label-danger">00/00/0000 00:00</span></h4>
+						<h4>Número de Orden: <strong><span id="numOrden" class="label label-danger"></span></strong></h4>
+						<h4>Fecha de recepción: <span id="fechaRecepcion" class="label label-danger"></span></h4>
 						<h4>Inspección Realizada por: <span id="realizadaPor" class="label label-success">@Usuario.getByName(session().get("userName")).obtenNombre</span></h4>
 					</div>
 					<div class="col-sm-offset-6 col-sm-6 col-xs-12" >
-						<h4>Fecha de Entrega: <span id="fechaEntrega" class="label label-danger">00-00-0000 00:00</span></h4>
+						<h4>Fecha de Entrega: <span id="fechaEntrega" class="label label-danger"></span></h4>
 					</div>	
 				</div>
 			</div>
@@ -23,10 +23,18 @@ ordenServicio: OrdenServicio = null
 	<!-- </div> -->
 	
 	<br>
-
+		<div>
+			<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#cliente">Cliente</a></li>
+			  <li ><a data-toggle="tab" href="#instrumento">Instrumento</a></li>
+			  <li ><a data-toggle="tab" href="#inspeccionInventario">Inspección e Inventario</a></li>
+			  <li ><a data-toggle="tab" href="#indicaciones">Indicaciones del Cliente</a></li>
+			  <li ><a data-toggle="tab" href="#servicios">Servicios</a></li>
+			</ul>
+		</div>
 	<!-- <div class="panel panel-default"> -->
-		<div class="row">
-			<div class="col-md-12">
+		<div class="row tab-content ">
+			<div id="cliente" class="col-md-12 tab-pane fade in active">
 				
 					<legend><h3>Cliente</h3></legend>
 					<div class="row">
@@ -34,7 +42,7 @@ ordenServicio: OrdenServicio = null
 							<!-- BOTON MODAL -->
 							<button type="button" class="btn" data-toggle="modal" data-target="#buscarCliente">Buscar Cliente</button>
 						</div>
-						<hr>
+						
 					</div>
 
 					
@@ -57,11 +65,11 @@ ordenServicio: OrdenServicio = null
 							<!-- </div> -->
 						</div>
 					
-				</div>
+				<!-- </div> -->
 			</div>
 
-			<div>
-				<div class="col-md-12">
+			<div id="instrumento" class="col-md-12 tab-pane fade">
+				<div >
 					<legend><h3>Instrumento</h3></legend>
 					<h4>Tipo de instrumento</h4>
 					<div class="row">
@@ -168,8 +176,8 @@ ordenServicio: OrdenServicio = null
 					</div>
 				</div>
 			</div>
-			<hr>
-			<div class="row">
+
+			<div id="inspeccionInventario" class="row tab-pane fade">
 				<div class="col-md-12">
 					<legend><h3>Inspección e Inventario</h3></legend>
 					<div class="row checkbox checkbox-danger clearMargin">
@@ -177,20 +185,20 @@ ordenServicio: OrdenServicio = null
 							<div class="col-md-6">
 								<div>
 									<label>
-									<input type="checkbox" name="inspeccion" value="accionEntonacion">
-									Acción y Entonación
+										<input type="checkbox" name="inspeccion" value="accionEntonacion">
+										Acción y Entonación
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="checkbox" name="inspeccion" value="condicionesAjuste">
-									Condiciones para Ajuste
+										<input type="checkbox" name="inspeccion" value="condicionesAjuste">
+										Condiciones para Ajuste
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="checkbox" name="inspeccion" value="electronica">
-									Electrónica
+										<input type="checkbox" name="inspeccion" value="electronica">
+										Electrónica
 									</label>
 								</div>
 								
@@ -198,43 +206,86 @@ ordenServicio: OrdenServicio = null
 							<div class="col-md-6">
 								<div>
 									<label>
-									<input type="checkbox" name="inspeccion" value="herrajes">
-									Herrajes
+										<input type="checkbox" name="inspeccion" value="herrajes">
+										Herrajes
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="checkbox" name="inspeccion" value="plasticos">
-									Plásticos, Tapas y Placas
+										<input type="checkbox" name="inspeccion" value="plasticos">
+										Plásticos, Tapas y Placas
 									</label>
 								</div>
-							
-						</div>
+
+							</div>
 							
 						</div>
 					</div>
 
 					@_inspeccion("accionEntonacion","Acción y Entonación",
-								Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación")
-								)
+					Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación")
+					)
 					@_inspeccion("condicionesAjuste","Condiciones para Ajuste",
-								Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo")
-								)
+					Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo")
+					)
 					@_inspeccion("electronica","Electrónica",
-								Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería")
-								)
+					Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería")
+					)
 					@_inspeccion("herrajes","Herrajes",
-								Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas")
-								)
+					Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas")
+					)
 					@_inspeccion("plasticos","Plásticos / Tapas / Placas",
-								Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería")
-								)
+					Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería")
+					)
 
 				</div>
-			
+
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<legend><h3>Anotaciones</h3></legend>
+						<div class="col-md-6 col-sm-6">
+							<textarea class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
+								
+							</textarea>
+						</div>
+						
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<legend><h3>Condiciones</h3></legend>
+						<div class="row clearfix">
+							<div class="row">
+								<div id="condicionesFrente " class="panel panel-default col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+									<h5>Condiciones Frente</h5>
+									<div style="width: 200px; height: 200px;">
+
+									</div>
+								</div>
+								<div id="condicionesTras " class="panel panel-default col-md-4 col-sm-4 col-xs-8 col-xs-offset-2">
+									<h5>Condiciones Reverso</h5>
+									<div style="width: 200px; height: 200px;">
+
+									</div>
+								</div>
+
+							</div>
+							<div class="row">
+								<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
+									<input type="file" name="adjunto" id="adjuntoFrente">
+								</div>
+								<div class="col-md-6 col-sm-6">
+									<input type="file" name="adjunto" id="adjuntoReverso">
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
-			<div class="row">
+			<div id="indicaciones" class="row tab-pane fade">
 				<div class="col-md-12 col-sm-12">
 					<legend><h3>Indicaciones del Cliente</h3></legend>
 					<div class="row">
@@ -251,53 +302,10 @@ ordenServicio: OrdenServicio = null
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12 col-sm-12">
-					<legend><h3>Anotaciones</h3></legend>
-					<div class="col-md-6 col-sm-6">
-						<textarea class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
-							
-						</textarea>
-					</div>
-					
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-12">
-					<legend><h3>Condiciones</h3></legend>
-					<div class="row clearfix">
-						<div class="row">
-							<div id="condicionesFrente " class="panel panel-default col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-								<h5>Condiciones Frente</h5>
-								<div style="width: 200px; height: 200px;">
-
-								</div>
-							</div>
-							<div id="condicionesTras " class="panel panel-default col-md-4 col-sm-4 col-xs-8 col-xs-offset-2">
-								<h5>Condiciones Reverso</h5>
-								<div style="width: 200px; height: 200px;">
-									
-								</div>
-							</div>
-							
-						</div>
-						<div class="row">
-							<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2">
-								<input type="file" name="adjunto" id="adjuntoFrente">
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<input type="file" name="adjunto" id="adjuntoReverso">
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
 			
 			<br>
 
-			<div class="row">
+			<div id="servicios" class="row tab-pane fade">
 				<div class="col-md-12">
 					<legend><h3>Servicios a realizar</h3></legend>
 					<div class="row">
@@ -364,9 +372,13 @@ ordenServicio: OrdenServicio = null
 							</select>
 							<span><b> o </b></span> -->
 							<input class="btn" id="limpiarBtn" type="button" value="Limpiar">
+							<input class="btn" id="guardarFirmaBtn" type="button" value="Guardar Firma">
 						</div>
-						<div id="firmaElectronicaPrint"> 
-							
+						<div class="row">
+							<br>
+							<div class="col-md-12" id="firmaElectronicaPrint"> 
+								<img class="print img-responsive" src="" alt="">
+							</div>
 						</div>
 					</div>
 				</div>
