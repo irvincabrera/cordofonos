@@ -121,12 +121,15 @@ public class OrdenServicio extends Model{
 	/******************************************/
 
 	@Transactional
-	public OrdenServicio save(OrdenServicio orden){
+	public OrdenServicio save(OrdenServicio orden, Usuario user){
 		Logger.debug("Salvando OrdenServicio"+orden);
 		try{
 			orden.save();
+			orden.refresh();
 		}catch(Exception e){
 			Logger.error("No se pudo salvar OrdenServicio");
+			orden = null;
+
 		}finally{
 			//orden.
 		}

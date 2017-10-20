@@ -24,15 +24,28 @@ public class OrdenesServicios extends Controller {
         return ok(Json.toJson(OrdenServicio.list()));
     }
 
-    // public Result save() {
-    //     Form<OrdenServicio> ordenForm = formFactory.form(OrdenServicio.class).bindFromRequest(); 
-    //     if(ordenForm.hasErrors()) {
-    //         return badRequest(views.html.app.ordenServicio.create._formCreate.render(ordenForm));
-    //     }
-    //     OrdenServicio ordenServicio = ordenServicio.save(ordenForm.get());
-    //     flash("success", "OrdenServicio " + ordenForm.get().id + " ha sido registrada");
-    //     return redirect(routes.HomeController.index());
-    // }
+    public Result save() {
+        Logger.info("ordenServicio@save()");
+        Form<OrdenServicio> ordenForm = formFactory.ordenForm(OrdenServicio.class).bindFromRequest(); 
+        Form<Cliente> clienteForm = formFactory.clienteForm(OrdenServicio.class).bindFromRequest(); 
+        Form<Instrumento> instrumentoForm = formFactory.instrumentoForm(OrdenServicio.class).bindFromRequest(); 
+        Usuario user = Usuario.getByName(request().username());
+        if(ordenForm.hasErrors()) {
+            return badRequest("error");
+        } else {
+            OrdenServicio object = OrdenServicio.save(ordenForm.get(), user);
+
+            if(object!=null){
+                result = created(Json.toJson(object));
+                flash("success", "OrdenServicio " + ordenForm.get().id + " ha sido registrada");
+            }
+            else{
+                result = internalServerError(Json.toJson("Error al guardar el registro"));
+            }
+        }
+        return redirect(routes.HomeController.index());
+    }
+
     public Result buscador() {
         return ok(views.html.app.ordenServicio.buscadorOrdenServ.indexBuscador.render());
     }

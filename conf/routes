@@ -11,7 +11,7 @@ GET		/logout 					controllers.Authenticate.logout
 #########ORDEN DE SERVICIO##########
 GET		/orden-servicio				controllers.OrdenesServicios.indexCreateOrden
 GET		/count-ordenes-servicio		controllers.OrdenesServicios.list
-#POST	/orden-servicio/save		controllers.OrdenesServicios.save
+POST	/orden-servicio/save		controllers.OrdenesServicios.save
 GET		/buscador-orden				controllers.OrdenesServicios.buscador
 
 
