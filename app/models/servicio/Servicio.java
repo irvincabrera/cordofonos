@@ -1,8 +1,11 @@
 package models;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.avaje.ebean.*;
 import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
+import play.libs.Json;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,40 +27,12 @@ public class Servicio extends Model{
 	@Id
 	public Long id;
 
-	public String servicio;
+	public String nombre;
 
-	public String estatus;
-    
     @ManyToOne
-    public Usuario tecnicoResponsable;
-
-	public boolean lauderia;
-
-	public boolean servicioTecnico;
-
-	public boolean pintura;
-
-	public boolean servicioElectronica;
-
-	@Column(precision = 7, scale = 2)
-    public BigDecimal costo;
-
-	@Formats.DateTime(pattern = "dd/MM/yyyy")
-	public Date fechaTermino;
-
-	@ManyToOne
-	public Usuario createdBy;
-
-
-	@ManyToOne
-	public OrdenServicio ordenServicio;
-
-	@WhenCreated
-	public Timestamp created;
-
-    @JsonIgnore
-    @WhenModified
-    public Timestamp updated;
+    public Departamento departamento;
+    
+    public boolean activo;
 
 	/******************************************/
 	/****************METODOS*******************/
@@ -65,7 +40,26 @@ public class Servicio extends Model{
 
 	public static Finder<Long, Servicio> find = new Finder<Long,Servicio>(Servicio.class);
 
+	public static List<Servicio> list() {
+        List<Servicio> objects = Servicio.find.all();
+        return objects;          
+    }
 
+	 public static ArrayNode tokenServicios(){
+       List<Servicio> lista = Servicio.list();
+         
+        ObjectNode jsono = Json.newObject();
+        ArrayNode arr = jsono.arrayNode();
+        for (Servicio servicio : lista ) {
+            ObjectNode o = Json.newObject();
+            o.put("id", servicio.id);
+            o.put("name", servicio.nombre);
+            arr.add(o);
+        }
+        jsono = null;
+        lista = null;
+        return arr;
+    }
 	/******************************************/
 	/******************CRUD********************/
 	/******************************************/

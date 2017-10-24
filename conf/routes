@@ -13,7 +13,8 @@ GET		/orden-servicio				controllers.OrdenesServicios.indexCreateOrden
 GET		/count-ordenes-servicio		controllers.OrdenesServicios.list
 #POST	/orden-servicio/save		controllers.OrdenesServicios.save
 GET		/buscador-orden				controllers.OrdenesServicios.buscador
-
+############# SERVICIOS ############
+GET 	/servicios-token-input		controllers.Servicios.tokenServicios
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

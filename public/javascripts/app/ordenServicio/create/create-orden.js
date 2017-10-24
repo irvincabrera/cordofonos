@@ -70,16 +70,17 @@
 		},
 		showInspeccion: function (event) {
 			var name = event.target.getAttribute('value');
+			console.log("name: ",name);
 			var $lala = $(event.target);
 			
 			if ($lala.prop('checked')) {
 				console.log("Checado");
-				console.log($lala.val());
+				console.log("$lala: ",$lala.val());
 				$('#' +$lala.val()).slideDown('400');
 			} else {
 				console.log("NO Checado");
 			 	$('#' +$lala.val()).slideUp(400);
-			 	this.$clearCheck.prop('checked',false);
+			 	$('#'+$lala.val()+' .clearCheck').prop('checked',false);
 			}
 		},
 		renderCount: function(){

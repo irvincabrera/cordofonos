@@ -104,7 +104,6 @@ public class Usuario extends Model{
         } catch (Exception ex) {
         }
         Logger.debug("password encriptado: "+ base64EncryptedString);
-        Desencriptar(base64EncryptedString);
         return base64EncryptedString;
     }
 

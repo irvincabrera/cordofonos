@@ -75,7 +75,7 @@ public class OrdenServicio extends Model{
 	public Usuario deliveredBy;
 
 	@OneToMany
-	public List<Servicio> servicios;
+	public List<DetalleServicio> servicios;
 
 	@OneToMany
 	public List<Accesorio> accesorios;

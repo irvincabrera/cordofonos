@@ -60,6 +60,30 @@ create table condiciones_ajuste (
   constraint pk_condiciones_ajuste primary key (id)
 );
 
+create table departamento (
+  id                            bigint auto_increment not null,
+  nombre                        varchar(255),
+  activo                        tinyint(1) default 0,
+  constraint pk_departamento primary key (id)
+);
+
+create table detalle_servicio (
+  id                            bigint auto_increment not null,
+  servicio_id                   bigint,
+  estatus                       varchar(255),
+  tecnico_responsable_id        bigint,
+  orden_servicio_id             bigint,
+  costo                         decimal(7,2),
+  fecha_termino                 datetime(6),
+  created_by_id                 bigint,
+  created                       datetime(6) not null,
+  updated                       datetime(6) not null,
+  constraint uq_detalle_servicio_servicio_id unique (servicio_id),
+  constraint uq_detalle_servicio_tecnico_responsable_id unique (tecnico_responsable_id),
+  constraint uq_detalle_servicio_created_by_id unique (created_by_id),
+  constraint pk_detalle_servicio primary key (id)
+);
+
 create table detalle_venta (
   id                            bigint auto_increment not null,
   venta_id                      bigint,
@@ -171,19 +195,9 @@ create table plasticos_tapas_placas (
 
 create table servicio (
   id                            bigint auto_increment not null,
-  servicio                      varchar(255),
-  estatus                       varchar(255),
-  tecnico_responsable_id        bigint,
-  lauderia                      tinyint(1) default 0,
-  servicio_tecnico              tinyint(1) default 0,
-  pintura                       tinyint(1) default 0,
-  servicio_electronica          tinyint(1) default 0,
-  costo                         decimal(7,2),
-  fecha_termino                 datetime(6),
-  created_by_id                 bigint,
-  orden_servicio_id             bigint,
-  created                       datetime(6) not null,
-  updated                       datetime(6) not null,
+  nombre                        varchar(255),
+  departamento_id               bigint,
+  activo                        tinyint(1) default 0,
   constraint pk_servicio primary key (id)
 );
 
@@ -232,6 +246,15 @@ create index ix_cliente_registered_by_id on cliente (registered_by_id);
 alter table condiciones_ajuste add constraint fk_condiciones_ajuste_instrumento_id foreign key (instrumento_id) references instrumento (id) on delete restrict on update restrict;
 create index ix_condiciones_ajuste_instrumento_id on condiciones_ajuste (instrumento_id);
 
+alter table detalle_servicio add constraint fk_detalle_servicio_servicio_id foreign key (servicio_id) references servicio (id) on delete restrict on update restrict;
+
+alter table detalle_servicio add constraint fk_detalle_servicio_tecnico_responsable_id foreign key (tecnico_responsable_id) references usuario (id) on delete restrict on update restrict;
+
+alter table detalle_servicio add constraint fk_detalle_servicio_orden_servicio_id foreign key (orden_servicio_id) references orden_servicio (id) on delete restrict on update restrict;
+create index ix_detalle_servicio_orden_servicio_id on detalle_servicio (orden_servicio_id);
+
+alter table detalle_servicio add constraint fk_detalle_servicio_created_by_id foreign key (created_by_id) references usuario (id) on delete restrict on update restrict;
+
 alter table detalle_venta add constraint fk_detalle_venta_venta_id foreign key (venta_id) references venta (id) on delete restrict on update restrict;
 create index ix_detalle_venta_venta_id on detalle_venta (venta_id);
 
@@ -261,14 +284,8 @@ create index ix_orden_servicio_delivered_by_id on orden_servicio (delivered_by_i
 alter table plasticos_tapas_placas add constraint fk_plasticos_tapas_placas_instrumento_id foreign key (instrumento_id) references instrumento (id) on delete restrict on update restrict;
 create index ix_plasticos_tapas_placas_instrumento_id on plasticos_tapas_placas (instrumento_id);
 
-alter table servicio add constraint fk_servicio_tecnico_responsable_id foreign key (tecnico_responsable_id) references usuario (id) on delete restrict on update restrict;
-create index ix_servicio_tecnico_responsable_id on servicio (tecnico_responsable_id);
-
-alter table servicio add constraint fk_servicio_created_by_id foreign key (created_by_id) references usuario (id) on delete restrict on update restrict;
-create index ix_servicio_created_by_id on servicio (created_by_id);
-
-alter table servicio add constraint fk_servicio_orden_servicio_id foreign key (orden_servicio_id) references orden_servicio (id) on delete restrict on update restrict;
-create index ix_servicio_orden_servicio_id on servicio (orden_servicio_id);
+alter table servicio add constraint fk_servicio_departamento_id foreign key (departamento_id) references departamento (id) on delete restrict on update restrict;
+create index ix_servicio_departamento_id on servicio (departamento_id);
 
 alter table venta add constraint fk_venta_created_by_id foreign key (created_by_id) references usuario (id) on delete restrict on update restrict;
 create index ix_venta_created_by_id on venta (created_by_id);
@@ -293,6 +310,15 @@ drop index ix_cliente_registered_by_id on cliente;
 
 alter table condiciones_ajuste drop foreign key fk_condiciones_ajuste_instrumento_id;
 drop index ix_condiciones_ajuste_instrumento_id on condiciones_ajuste;
+
+alter table detalle_servicio drop foreign key fk_detalle_servicio_servicio_id;
+
+alter table detalle_servicio drop foreign key fk_detalle_servicio_tecnico_responsable_id;
+
+alter table detalle_servicio drop foreign key fk_detalle_servicio_orden_servicio_id;
+drop index ix_detalle_servicio_orden_servicio_id on detalle_servicio;
+
+alter table detalle_servicio drop foreign key fk_detalle_servicio_created_by_id;
 
 alter table detalle_venta drop foreign key fk_detalle_venta_venta_id;
 drop index ix_detalle_venta_venta_id on detalle_venta;
@@ -323,14 +349,8 @@ drop index ix_orden_servicio_delivered_by_id on orden_servicio;
 alter table plasticos_tapas_placas drop foreign key fk_plasticos_tapas_placas_instrumento_id;
 drop index ix_plasticos_tapas_placas_instrumento_id on plasticos_tapas_placas;
 
-alter table servicio drop foreign key fk_servicio_tecnico_responsable_id;
-drop index ix_servicio_tecnico_responsable_id on servicio;
-
-alter table servicio drop foreign key fk_servicio_created_by_id;
-drop index ix_servicio_created_by_id on servicio;
-
-alter table servicio drop foreign key fk_servicio_orden_servicio_id;
-drop index ix_servicio_orden_servicio_id on servicio;
+alter table servicio drop foreign key fk_servicio_departamento_id;
+drop index ix_servicio_departamento_id on servicio;
 
 alter table venta drop foreign key fk_venta_created_by_id;
 drop index ix_venta_created_by_id on venta;
@@ -342,6 +362,10 @@ drop table if exists accion_entonacion;
 drop table if exists cliente;
 
 drop table if exists condiciones_ajuste;
+
+drop table if exists departamento;
+
+drop table if exists detalle_servicio;
 
 drop table if exists detalle_venta;
 
