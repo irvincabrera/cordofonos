@@ -107,12 +107,14 @@
 			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
 		 },
 		 toggleInner: function (event) {
-		 	var toogleId = $(event.target.id)
-		 	// $('#inner-'+idaccionEntonacion).slideUp(400);
+		 	var toogleId = (event.target.getAttribute('value'));
+		 	console.log("even.target.id",toogleId);
+
 		 	if ($('#inner-'+toogleId).is(':hidden')) {
-		 		// $('#toggler-'+toogleId);
+		 		$('#toggler-'+toogleId).attr('class','glyphicon glyphicon-menu-up');
 		 		$('#inner-'+toogleId).slideDown(400);
 		 	} else {
+		 		$('#toggler-'+toogleId).attr('class','glyphicon glyphicon-menu-down');
 		 		$('#inner-'+toogleId).slideUp(400);
 		 	}
 		 },
