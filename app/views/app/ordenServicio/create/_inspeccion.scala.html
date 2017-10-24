@@ -7,39 +7,45 @@
 
 	<div class="row" id="@id" style="display:none;">			
 		<div class="col-sm-12 col-md-12 dimMargin">
-			<legend><h4>@tipo</h4></legend>
+			<legend id="legend-@id"><h4>@tipo <span id="toggler-@id" class="glyphicon glyphicon-menu-up" ></span></h4></legend>
 
-		 @for( i<- 0 to (labels.length -1)) {
-			<div class="col-md-offset-2 col-sm-offset-2 col-md-4 col-sm-4 clearfix">
-				<label class="clearMargin">@labels(i)</label>
+			<div id="inner-@id">
+			@for( i<- 0 to (labels.length -1)) {
+				<div class="col-md-offset-2 col-sm-offset-2 col-md-4 col-sm-4 clearfix">
+					<label class="clearMargin">@labels(i)</label>
+				</div>
+				
+				<div class="radio  clearfix col-md-4 col-sm-4">
+					<div class="col-md-3 col-sm-3">
+						<label>
+							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Óptimas Condiciones">
+							B
+						</label>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<label>
+							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Puede requerir Atención">
+							R
+						</label>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<label>
+							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Atención Inmediata">
+							M
+						</label>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<label>
+							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Anotaciones">
+							*
+						</label>
+					</div>
+			 	</div>
+			}
 			</div>
-			
-			<div class="radio  clearfix col-md-4 col-sm-4">
-				<div class="col-md-3 col-sm-3">
-					<label>
-						<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Óptimas Condiciones">
-						B
-					</label>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<label>
-						<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Puede requerir Atención">
-						R
-					</label>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<label>
-						<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Atención Inmediata">
-						M
-					</label>
-				</div>
-				<div class="col-md-3 col-sm-3">
-					<label>
-						<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Anotaciones">
-						*
-					</label>
-				</div>
-			</div>
-		}
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		var id@id = "@id";
+	</script>

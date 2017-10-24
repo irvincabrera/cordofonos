@@ -22,6 +22,13 @@
 
 			this.$checkboxInspeccion	= this.$formOrden.find('input[name=inspeccion]');
 			this.$clearCheck			= this.$formOrden.find('.clearCheck');
+
+			// this.$innerAccion			=$('#inner-'+idaccionEntonacion);
+			this.$legendAccion			=$('#legend-'+idaccionEntonacion);
+			this.$legendCondiciones		=$('#legend-'+idcondicionesAjuste);
+			this.$legendElectronica		=$('#legend-'+idelectronica);
+			this.$legendHerrajes		=$('#legend-'+idherrajes);
+			this.$legendPlasticos		=$('#legend-'+idplasticos);
 			
 			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
 
@@ -33,6 +40,14 @@
 			this.$radiosRecibido.on('click',this.showOtro.bind(this));
 			this.$checkboxInspeccion.on('click',this.showInspeccion.bind(this));
 			this.$saveBtn.on('click',this.save.bind(this));
+			this.$legendAccion.on('click',this.toggleInner.bind(this));
+			this.$legendCondiciones.on('click',this.toggleInner.bind(this));
+			this.$legendElectronica.on('click',this.toggleInner.bind(this));
+			this.$legendHerrajes.on('click',this.toggleInner.bind(this));
+			this.$legendPlasticos.on('click',this.toggleInner.bind(this));
+			
+			// this.$legendAccion.on('click', this.toggleInner.bind(this));
+			
 		},
 		render: function () {
 			this.$tabla.DataTable();
@@ -90,6 +105,16 @@
 				console.log("/count-ordenes-servicio: complete");
 			});
 			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
+		 },
+		 toggleInner: function (event) {
+		 	var toogleId = $(event.target.id)
+		 	// $('#inner-'+idaccionEntonacion).slideUp(400);
+		 	if ($('#inner-'+toogleId).is(':hidden')) {
+		 		// $('#toggler-'+toogleId);
+		 		$('#inner-'+toogleId).slideDown(400);
+		 	} else {
+		 		$('#inner-'+toogleId).slideUp(400);
+		 	}
 		 },
 		 save: function(){
 		 	that = this;
