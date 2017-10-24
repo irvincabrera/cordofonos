@@ -22,6 +22,7 @@
 
 			this.$checkboxInspeccion	= this.$formOrden.find('input[name=inspeccion]');
 			this.$clearCheck			= this.$formOrden.find('.clearCheck');
+			this.$optionsServicios		= this.$formOrden.find('#optionsServicios');
 
 			// this.$innerAccion			=$('#inner-'+idaccionEntonacion);
 			this.$legendAccion			=$('#legend-'+idaccionEntonacion);
@@ -52,6 +53,7 @@
 		render: function () {
 			this.$tabla.DataTable();
 			this.renderCount();
+			this.$optionsServicios.tokenInput('/servicios-token-input');
 		},
 		showOtro: function () {
 			if (this.$radiosInstrumento.filter(':checked').val() =='Otro') {
