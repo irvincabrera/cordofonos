@@ -21,7 +21,7 @@ public class Cliente extends Model{
 	@Constraints.Required
 	public String nombreCompleto;
 
-	public String direccion;
+	// public String direccion;
 
 	public String ciudad;
 
@@ -33,11 +33,11 @@ public class Cliente extends Model{
 	
 	public int telefono;
 
-	@OneToMany
-	public List<Instrumento> instrumentos;
+	// @OneToMany
+	// public List<Instrumento> instrumentos;
 
-	@OneToMany
-	public List<OrdenServicio> ordenesServicio;
+	// @OneToMany
+	// public List<OrdenServicio> ordenesServicio;
 
 	@ManyToOne
 	public Usuario registeredBy;
