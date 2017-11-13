@@ -34,7 +34,6 @@ create table accion_entonacion (
 create table cliente (
   id                            bigint auto_increment not null,
   nombre_completo               varchar(255),
-  direccion                     varchar(255),
   ciudad                        varchar(255),
   email                         varchar(255),
   facebook                      varchar(255),
@@ -137,7 +136,7 @@ create table herrajes (
 
 create table instrumento (
   id                            bigint auto_increment not null,
-  tipo                          varchar(255),
+  tipo_instrumento              varchar(255),
   marca                         varchar(255),
   modelo                        varchar(255),
   num_serie                     varchar(255),

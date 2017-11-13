@@ -23,7 +23,7 @@ public class Instrumento extends Model{
 	public Long id;
 
 	@Constraints.Required
-	public String tipo;
+	public String tipoInstrumento;
 
 	public String marca;
 

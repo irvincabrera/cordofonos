@@ -28,8 +28,8 @@ ordenServicio: OrdenServicio = null
 			  <li class="active"><a data-toggle="tab" href="#cliente">Cliente</a></li>
 			  <li ><a data-toggle="tab" href="#instrumento">Instrumento</a></li>
 			  <li ><a data-toggle="tab" href="#inspeccionInventario">Inspección e Inventario</a></li>
-			  <li ><a data-toggle="tab" href="#indicaciones">Indicaciones del Cliente</a></li>
-			  <li ><a data-toggle="tab" href="#servicios">Servicios</a></li>
+			  <li class="disabled"><a >Indicaciones del Cliente</a></li>
+			  <li class="disabled"><a >Servicios</a></li>
 			</ul>
 		</div>
 	<!-- <div class="panel panel-default"> -->
@@ -49,19 +49,19 @@ ordenServicio: OrdenServicio = null
 					<!-- <div class="col-md-12"> -->
 						<div class=" col-md-6 col-sm-6">
 							<label>Nombre del Cliente:</label>
-							<input id="nombreCompleto" type="text" class="form-control">
+							<input id="nombreCompleto" name="nombreCompleto" type="text" class="form-control">
 							<label>Ciudad:</label>
-							<input id="ciudad" type="text" class="form-control">
+							<input id="ciudad" name="ciudad" type="text" class="form-control">
 							<label>Teléfono:</label>
-							<input id="telefono" type="text" class="form-control">
+							<input id="telefono" name="telefono" type="number" class="form-control">
 						</div>
 						<div class=" col-md-6 col-sm-6">
 							<label>Email:</label>
-							<input id="email" type="text" class="form-control">
+							<input id="email" name="email" type="text" class="form-control">
 							<label>WhatsApp:</label>
-							<input id="whatsapp" type="text" class="form-control">
+							<input id="whatsapp" name="whatsapp" type="number" class="form-control">
 							<label>Facebook:</label>
-							<input id="facebook" type="text" class="form-control">
+							<input id="facebook" name="facebook" type="text" class="form-control">
 							<!-- </div> -->
 						</div>
 					
@@ -73,23 +73,23 @@ ordenServicio: OrdenServicio = null
 					<legend><h3>Instrumento</h3></legend>
 					<h4>Tipo de instrumento</h4>
 					<div class="row">
-						<div id="tipoInstrumento" class="col-md-12  col-sm-12">
+						<div id="div-tipoInstrumento" class="col-md-12  col-sm-12">
 							<div class="col-md-6 col-sm-6">
 								<div>
 									<label>
-									<input type="radio" name="instrument" value="Guitarra Eléctrica">
+									<input type="radio" name="tipoInstrumento" value="Guitarra Eléctrica">
 									Guitarra Eléctrica
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="radio" name="instrument" value="Guitarra Acústica">
+									<input type="radio" name="tipoInstrumento" value="Guitarra Acústica">
 									Guitarra Acústica
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="radio" name="instrument" id="otroInstrumento" value="Otro">
+									<input type="radio" name="tipoInstrumento" id="otroInstrumento" value="Otro">
 									Otro
 									</label>
 								</div>
@@ -98,13 +98,13 @@ ordenServicio: OrdenServicio = null
 							<div class="col-md-6 col-sm-6">
 								<div>
 									<label>
-									<input type="radio" name="instrument" value="Bajo Eléctrico">
+									<input type="radio" name="tipoInstrumento" value="Bajo Eléctrico">
 									Bajo Eléctrico
 									</label>
 								</div>
 								<div>
 									<label>
-									<input type="radio" name="instrument" value="Bajo Acústico">
+									<input type="radio" name="tipoInstrumento" value="Bajo Acústico">
 									Bajo Acústico
 									</label>
 								</div>
@@ -285,7 +285,7 @@ ordenServicio: OrdenServicio = null
 		<div class="row" style="margin-top: 50px; margin-bottom: 50px;">
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="text-center col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-4 col-xs-offset-2">
-					 <a class="saveBtn btn btn-danger">
+					 <a id="saveBtn" class="btn btn-danger">
 					 	Guardar
 					 </a>
 				</div>

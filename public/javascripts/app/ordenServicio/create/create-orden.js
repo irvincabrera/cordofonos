@@ -123,20 +123,21 @@
 		 },
 		 save: function(){
 		 	that = this;
-			// $.ajax({
-			// 	url: 'orden-servicio/save',
-			// 	type: 'POST',
-			// 	contentType: false, 
-			// 	processData: false,
-			// 	data: new FormData(this.$formOrden)
-			// })
-			// .done(function(response) {
-			// 	console.log(response);
-			// 	// that.render();
-			// })
-			// .fail(function(error) {
-			// 	console.log(error);
-			// });
+		 	console.log('Entrando a orden save...');
+			$.ajax({
+				url: 'orden-servicio/save',
+				type: 'POST',
+				contentType: false, 
+				processData: false,
+				data: new FormData(this.$formOrden[0])
+			})
+			.done(function(response) {
+				console.log(response);
+				// that.render();
+			})
+			.fail(function(error) {
+				console.log(error);
+			});
 		 }
 	}
 	createOrden.init();

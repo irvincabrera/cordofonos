@@ -121,7 +121,7 @@ public class OrdenServicio extends Model{
 	/******************************************/
 
 	@Transactional
-	public OrdenServicio save(OrdenServicio orden, Usuario user){
+	public static OrdenServicio save(OrdenServicio orden, Usuario user){
 		Logger.debug("Salvando OrdenServicio"+orden);
 		try{
 			orden.save();
