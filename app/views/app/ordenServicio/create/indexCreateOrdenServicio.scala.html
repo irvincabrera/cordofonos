@@ -16,19 +16,21 @@
 	<script>
 		//Script para div de firma electronica
 	    $(document).ready(function() {
-	        $("#firmaElectronica").jSignature();
+	        $("#div-firmaElectronica").jSignature();
 	        $('#limpiarBtn').bind('click', function () {
-	        	$("#firmaElectronica").jSignature('clear');
+	        	$("#div-firmaElectronica").jSignature('clear');
 	        	$('.print').prop('src','');         	
+				$('#firmaElectronica').text('');
 	        });
 
 	        $('#guardarFirmaBtn').bind('click', function () {
-	        	$("#firmaElectronicaPrint").remove('img');
-		        var datapair = $("#firmaElectronica").jSignature("getData", "svgbase64");
+	        	$("#div-firmaElectronicaPrint").remove('img');
+		        var datapair = $("#div-firmaElectronica").jSignature("getData", "svgbase64");
 				var i = new Image();
 				i.src = "data:" + datapair[0] + "," + datapair[1];
-				// $(i).appendTo($("#firmaElectronicaPrint")); // append the image (SVG) to DOM.
+				// $(i).appendTo($("#div-firmaElectronicaPrint")); // append the image (SVG) to DOM.
 				$('.print').prop('src',i.src); 
+				$('#firmaElectronica').text(i.src);
 			})
 	    })
 	</script>

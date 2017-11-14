@@ -1,7 +1,7 @@
 @(
 ordenServicio: OrdenServicio = null
 )
-<div id="formOrdenServicio">
+<form id="formOrdenServicio">
 	<!-- <div class="panel panel-default"> -->
 		<div class="row ">
 			<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
@@ -11,7 +11,8 @@ ordenServicio: OrdenServicio = null
 				<div class="col-md-12">
 					<div class="col-md-offset-6 col-md-6 col-sm-offset-6 col-sm-6 col-xs-12">
 						<h4>Número de Orden: <strong><span id="numOrden" class="label label-danger"></span></strong></h4>
-						<h4>Fecha de recepción: <span id="fechaRecepcion" class="label label-danger"></span></h4>
+						<h4>Fecha de recepción: <span id="span-fechaRecepcion" class="label label-danger"></span></h4>
+						<input type="text" hidden id="fechaRecepcion" name="fechaRecepcion">
 						<h4>Inspección Realizada por: <span id="realizadaPor" class="label label-success">@Usuario.getByName(session().get("userName")).obtenNombre</span></h4>
 					</div>
 					<div class="col-sm-offset-6 col-sm-6 col-xs-12" >
@@ -111,7 +112,7 @@ ordenServicio: OrdenServicio = null
 							</div>
 							<div id="divOtroInstrumento" class="col-md-12" style="display: none;">
 								<div>
-									<input id="instrumentoInput" type="text" name="instrument" class="form-control">
+									<input id="instrumentoInput" type="text" name="tipoInstrumento" class="form-control">
 								</div>
 							</div>
 						</div>
@@ -120,19 +121,19 @@ ordenServicio: OrdenServicio = null
 					<div id="tipoInstrumentoInput" class="row input clearMargin">
 						<div  class=" col-md-6  col-sm-6" >
 							<label>Marca:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="marca" name="marca" class="form-control">
 							<label>Modelo:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="modelo" name="modelo" class="form-control">
 							<label>Núm. Serie:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="numSerie" name="numSerie" class="form-control">
 						</div>
 						<div  class=" col-md-6 col-sm-6" >
 							<label>Color:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="color" name="color" class="form-control">
 							<label>Fecha de Producción:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="fechaProducción" name="fechaProducción" class="form-control">
 							<label>Almacén:</label>
-							<input type="text" class="form-control">
+							<input type="text" id="almacen" name="almacen" class="form-control">
 						</div>
 					</div>
 				</div>
@@ -142,13 +143,13 @@ ordenServicio: OrdenServicio = null
 						<div class="col-md-offset-3 col-md-6 col-sm-6 radio">
 							<div>
 								<label>
-								<input type="radio" name="recibido" value="Estuche">
+								<input type="radio" name="contenedor" value="Estuche">
 								Estuche
 								</label>
 							</div>
 							<div>
 								<label>
-								<input type="radio" name="recibido" value="Semi">
+								<input type="radio" name="contenedor" value="Semi">
 								Semi
 								</label>
 							</div>
@@ -157,21 +158,26 @@ ordenServicio: OrdenServicio = null
 						<div class="col-md-6 col-sm-6"> -->
 							<div>
 								<label>
-								<input type="radio" name="recibido" value="Funda">
+								<input type="radio" name="contenedor" value="Funda">
 								Funda
 								</label>
 							</div>
 							<div>
 								<label>
-								<input type="radio" name="recibido" value="Otro">
+								<input type="radio" name="contenedor" value="Otro">
 								Otro
 								</label>
 							</div>
 						</div>
 						<div id="divOtroContenedor" class="col-md-offset-3 col-md-6" style="display: none;">
 							<div>
-								<input id="contenedorInput" type="text" name="recibido" class="form-control">
+								<input id="contenedorInput" type="text" name="contenedor" class="form-control">
 							</div>
+						</div>
+						<div>
+							<label class="col-md-offset-3 col-md-6" for="contenedorDescripcion">
+								<input type="text" id="contenedorDescripcion" name="contenedorDescripcion">
+							</label>
 						</div>
 					</div>
 				</div>
@@ -242,11 +248,11 @@ ordenServicio: OrdenServicio = null
 
 				</div>
 
-				<div class="row" style="display: none;">
+				<div id="div-anotaciones" class="row" style="display: none;">
 					<div class="col-md-12 col-sm-12">
 						<legend><h3>Anotaciones</h3></legend>
 						<div class="col-md-6 col-sm-6">
-							<textarea class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
+							<textarea id="anotaciones" name="anotaciones" class="form-control" maxlength="21844" rows="4" cols="20" style="width: 100%;">
 								
 							</textarea>
 						</div>
@@ -264,13 +270,13 @@ ordenServicio: OrdenServicio = null
 					<div class="row">
 						<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
 							<label>Encordar con:</label>
-							<input type="text" class="form-control">
+							<input id="indicacionesEncordar" name="indicacionesEncordar" type="text" class="form-control">
 							<label>Afinación:</label>
-							<input type="text" class="form-control">
+							<input id="indicacionesAfinacion" name="indicacionesAfinacion" type="text" class="form-control">
 						</div>	
 						<div id="indicacionesCliente" class="input col-md-6 col-sm-6" >
 							<label>Acción:</label>
-							<input type="text" class="form-control">
+							<input id="indicacionesAccion" name="indicacionesAccion" type="text" class="form-control">
 						</div>		
 					</div>
 				</div>
@@ -298,6 +304,6 @@ ordenServicio: OrdenServicio = null
 			</div>
 		</div>
 	<!-- </div> -->
-</div>
+</form>
 
 @app.ordenServicio.modal._modal("Buscar Cliente")

@@ -11,6 +11,7 @@
 			
 			this.$numOrden				= this.$formOrden.find('#numOrden');
 			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
+			this.$spanFechaRecepcion		= this.$formOrden.find('#span-fechaRecepcion');
 			
 			this.$radiosInstrumento		= this.$formOrden.find('input[name=instrument]');
 			this.$divOtroInstrumento	= $('#divOtroInstrumento');
@@ -31,7 +32,7 @@
 			this.$legendHerrajes		=$('#legend-'+idherrajes);
 			this.$legendPlasticos		=$('#legend-'+idplasticos);
 			
-			this.$tabla 				= this.$formOrden.find('#tabla-prueba');
+			this.$tabla 				= this.$formOrden.find('.tabla-prueba');
 
 			this.$saveBtn				= $('#saveBtn');
 			
@@ -96,18 +97,19 @@
 			.done(function(data) {
 				console.log("success");
 				if( data == 0 ) {
-					that.$numOrden.text('1000');
+					that.$numOrden.text('000'+data);
 				} else {
 					that.$numOrden.text(data+1000);
 				}
 			})
 			.fail(function() {
-				console.log("error");
+				console.log("error del contador de orden");
 			})
 			.always(function() {
-				console.log("/count-ordenes-servicio: complete");
+				console.log("Contador orden: completo");
 			});
 			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
+			this.$spanFechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
 		 },
 		 toggleInner: function (event) {
 		 	var toogleId = (event.target.getAttribute('value'));
@@ -129,7 +131,7 @@
 				type: 'POST',
 				contentType: false, 
 				processData: false,
-				data: new FormData(this.$formOrden[0])
+				data: new FormData(that.$formOrden[0])
 			})
 			.done(function(response) {
 				console.log(response);

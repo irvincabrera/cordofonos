@@ -28,7 +28,7 @@ public class OrdenServicio extends Model{
 	@Id
 	public Long id;
 
-	@Formats.DateTime(pattern = "dd/MM/yyyy")
+	@Formats.DateTime(pattern = "dd/MM/yyyy HH:mm")
 	public Date fechaRecepcion;
 	
 	@ManyToOne
