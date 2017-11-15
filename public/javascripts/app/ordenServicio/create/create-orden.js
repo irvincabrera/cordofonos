@@ -11,7 +11,7 @@
 			
 			this.$numOrden				= this.$formOrden.find('#numOrden');
 			this.$fechaRecepcion		= this.$formOrden.find('#fechaRecepcion');
-			this.$spanFechaRecepcion		= this.$formOrden.find('#span-fechaRecepcion');
+			this.$spanFechaRecepcion	= this.$formOrden.find('#span-fechaRecepcion');
 			
 			this.$radiosInstrumento		= this.$formOrden.find('input[name=instrument]');
 			this.$divOtroInstrumento	= $('#divOtroInstrumento');
@@ -26,11 +26,11 @@
 			this.$optionsServicios		= this.$formOrden.find('#optionsServicios');
 
 			// this.$innerAccion			=$('#inner-'+idaccionEntonacion);
-			this.$legendAccion			=$('#legend-'+idaccionEntonacion);
-			this.$legendCondiciones		=$('#legend-'+idcondicionesAjuste);
-			this.$legendElectronica		=$('#legend-'+idelectronica);
-			this.$legendHerrajes		=$('#legend-'+idherrajes);
-			this.$legendPlasticos		=$('#legend-'+idplasticos);
+			this.$legendAccion			= $('#legend-'+idaccionEntonacion);
+			this.$legendCondiciones		= $('#legend-'+idcondicionesAjuste);
+			this.$legendElectronica		= $('#legend-'+idelectronica);
+			this.$legendHerrajes		= $('#legend-'+idherrajes);
+			this.$legendPlasticos		= $('#legend-'+idplasticos);
 			
 			this.$tabla 				= this.$formOrden.find('.tabla-prueba');
 
@@ -96,17 +96,21 @@
 			})
 			.done(function(data) {
 				console.log("success");
-				if( data == 0 ) {
-					that.$numOrden.text('000'+data);
+				if( data > 0 && data < 10) {
+					that.$numOrden.text('000'+(data+1));
 				} else {
-					that.$numOrden.text(data+1000);
+					if (data >= 10 && data <100) {
+						that.$numOrden.text('00'+(data+1));
+					}else if (data >= 100 && data < 1000) {
+						that.$numOrden.text('0'+(data+1));
+					};;
 				}
 			})
 			.fail(function() {
 				console.log("error del contador de orden");
 			})
 			.always(function() {
-				console.log("Contador orden: completo");
+				console.log("Contador num actual: "+(data+1));
 			});
 			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
 			this.$spanFechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
