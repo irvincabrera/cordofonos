@@ -17,7 +17,7 @@
 			this.$divOtroInstrumento	= $('#divOtroInstrumento');
 			this.$instrumentoInput		= $('#instrumentoInput');
 
-			this.$radiosRecibido		= this.$formOrden.find('input[name=recibido]');
+			this.$radiosRecibido		= this.$formOrden.find('input[name=contenedor]');
 			this.$divOtroContenedor		= $('#divOtroContenedor');
 			this.$contenedorInput		= $('#contenedorInput');
 
@@ -105,7 +105,6 @@
 		},
 		renderCount: function(){
 			var that = this;
-			this.dataa;
 			$.ajax({
 				url: '/count-ordenes-servicio',
 				type: 'GET',
@@ -114,7 +113,7 @@
 			})
 			.done(function(data) {
 				console.log("Contador numOrden ==> "+(data+1));
-				if( data > 0 && data < 10) {
+				if( data >= 0 && data < 10) {
 					that.$numOrden.text('000'+(data+1));
 				} else {
 					if (data >= 10 && data <100) {
@@ -127,8 +126,8 @@
 			.fail(function() {
 				console.log("error del contador de orden");
 			});
-			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
-			this.$spanFechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
+			this.$fechaRecepcion.val($.format.date(currentdate,'dd/MM/yy HH:mm'));
+			this.$spanFechaRecepcion.text($.format.date(currentdate,'dd/MM/yyyy HH:mm'));
 		 },
 		 toggleInner: function (event) {
 		 	var toogleId = (event.target.getAttribute('value'));
@@ -145,10 +144,14 @@
 		 save: function(){
 		 	that = this;
 		 	console.log('Entrando a orden save...');
-		 	swal(
-		 		'Guardando... Espere por favor',
-		 		swal.showLoading()
-		 		)
+		 	swal({
+		 		onOpen: function () {
+				    swal.showLoading()
+				  },
+		 		text: 'Guardando... Espere por favor'
+		 		})			
+		 	.catch(swal.noop);
+
 			$.ajax({
 				url: 'orden-servicio',
 				type: 'POST',

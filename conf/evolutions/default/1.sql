@@ -154,6 +154,7 @@ create table orden_servicio (
   fecha_recepcion               datetime(6),
   cliente_id                    bigint,
   instrumento_id                bigint,
+  estatus                       varchar(255),
   contenedor                    varchar(255),
   contenedor_descripcion        varchar(255),
   almacen                       varchar(255),

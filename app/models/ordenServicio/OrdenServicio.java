@@ -37,6 +37,8 @@ public class OrdenServicio extends Model{
 	@OneToOne
 	public Instrumento instrumento;
 
+	public String estatus;
+
 	public String contenedor;
 	
 	public String contenedorDescripcion;
@@ -126,6 +128,7 @@ public class OrdenServicio extends Model{
 		try{
 			Logger.debug("Entering try...");
 			orden.createdBy = user;
+			orden.estatus = "En Proceso";
 			if (cliente.id != null) {
 				cliente.save();
 				cliente.refresh();
