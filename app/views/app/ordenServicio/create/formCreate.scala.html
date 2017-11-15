@@ -230,19 +230,24 @@ ordenServicio: OrdenServicio = null
 					<div class="col-md-12">
 						
 						@_inspeccion("accionEntonacion","Acción y Entonación",
-						Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación")
+						Array("Acción en el Puente","Acción en Cejuela", "Curvatura de Brazo", "Entonación"),
+						Array("accionPuente","accionCejuela","curvatura","entonacion")
 						)
 						@_inspeccion("condicionesAjuste","Condiciones para Ajuste",
-						Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo")
+						Array("Puente","Cejuela", "Trastes", "Tuerca de ajuste de Alma", "Alma de ajuste de Brazo", "Condiciones del Diapasón","Condiciones del Brazo", "Ángulo del Brazo"),
+						Array("puente","cejuela","trastes","ajusteAlma","tuercaAlma","diapason","brazo","anguloBrazo")
 						)
 						@_inspeccion("electronica","Electrónica",
-						Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería")
+						Array("Pastilla del Puente","Pastilla del Centro", "Pastilla del Brazo", "Piezo / Micrófono", "Jack", "Potenciómetro Volúmen 1","Potenciómetro Volúmen 2", "Potenciómetro Tono 1", "Potenciómetro Tono 2", "Selector", "Interruptores", "Calidad de Conexión", "Tierra Física", "Blindaje", "Módulo Preamplificador", "Potenciómetro Blend", "Potenciómetro EQ Graves", "Potenciómetro EQ Medios", "Potenciómetro EQ Agudos", "Batería", "Conector de Batería"),
+						Array("pastillaPuente","pastillaCentro","pastillaBrazo","piezoMicro","jack","potVolumen1","potVolumen2","potTono1","potTono2","selector","interruptores","calidadConexion","tierraFisica","blindaje","preamplificador","potBlend","potEQGrav","potEQMed","potEQAgu","bateria","conexionBateria")
 						)
 						@_inspeccion("herrajes","Herrajes",
-						Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas")
+						Array("Segletas","Prisioneros", "Bujes y postes", "Palanca de Trémolo", "Maquinaria", "Candados","Guías de Cuerda", "Resortes", "Pines para Tahalí", "Pines para Cuerdas"),
+						Array("segletas","prisioneros","bujesPostes","palancaTremolo","maquinaria","candados","guiasCuerda","resortes","pinTahali","pinCuerdas")
 						)
 						@_inspeccion("plasticos","Plásticos / Tapas / Placas",
-						Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería")
+						Array("Mica","Marcos de Pastillas", "Perillas", "Portajack", "Tapa de Alma", "Tapa de Circuitos","Tapa de Resortes", "Tapa / Caja para Batería", "Placa / Rondanas de Brazo", "Ferrules","Tornillería"),
+						Array("mica","marcosPastillas","perillas","portajack","tapaAlma","tapaCircuitos","tapaResortes","tapaBateria","tapaRonBrazo","ferrules","tornilleria")
 						)
 					</div>
 
@@ -294,8 +299,8 @@ ordenServicio: OrdenServicio = null
 					 	Guardar
 					 </a>
 				</div>
-				<div class="text-center col-md-4 col-sm-4 col-xs-4">
-					 <a href="@routes.HomeController.index" class="btn btn-default">
+				<div  class="text-center col-md-4 col-sm-4 col-xs-4">
+					 <a id="cancelBtn" class="btn btn-default">
 					 	Cancelar
 					 </a>
 					

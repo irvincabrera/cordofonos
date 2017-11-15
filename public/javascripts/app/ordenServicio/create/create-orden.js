@@ -35,6 +35,7 @@
 			this.$tabla 				= this.$formOrden.find('.tabla-prueba');
 
 			this.$saveBtn				= $('#saveBtn');
+			this.$cancelBtn				= $('#cancelBtn');
 			
 		},
 		binder: function () {
@@ -42,6 +43,7 @@
 			this.$radiosRecibido.on('click',this.showOtro.bind(this));
 			this.$checkboxInspeccion.on('click',this.showInspeccion.bind(this));
 			this.$saveBtn.on('click',this.save.bind(this));
+			this.$cancelBtn.on('click',this.cancel.bind(this));
 			this.$legendAccion.on('click',this.toggleInner.bind(this));
 			this.$legendCondiciones.on('click',this.toggleInner.bind(this));
 			this.$legendElectronica.on('click',this.toggleInner.bind(this));
@@ -55,6 +57,21 @@
 			this.$tabla.DataTable();
 			this.renderCount();
 			this.$optionsServicios.tokenInput('/servicios-token-input');
+		},
+		cancel: function (e) {
+			e.preventDefault();
+		 	swal({
+			  title: "¿Regresar a página de inicio?",
+			  type: 'warning',
+			  showCancelButton: true,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: 'Regresar',
+			  cancelButtonText: 'Quedarse'
+			}).then(function () {
+			  window.location.replace("/");
+			})
+			.catch(swal.noop);
 		},
 		showOtro: function () {
 			if (this.$radiosInstrumento.filter(':checked').val() =='Otro') {
@@ -88,6 +105,7 @@
 		},
 		renderCount: function(){
 			var that = this;
+			this.dataa;
 			$.ajax({
 				url: '/count-ordenes-servicio',
 				type: 'GET',
@@ -95,7 +113,7 @@
 				data: {}
 			})
 			.done(function(data) {
-				console.log("success");
+				console.log("Contador numOrden ==> "+(data+1));
 				if( data > 0 && data < 10) {
 					that.$numOrden.text('000'+(data+1));
 				} else {
@@ -108,9 +126,6 @@
 			})
 			.fail(function() {
 				console.log("error del contador de orden");
-			})
-			.always(function() {
-				console.log("Contador num actual: "+(data+1));
 			});
 			this.$fechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
 			this.$spanFechaRecepcion.text($.format.date(currentdate,'dd/MM/yy HH:mm'));
@@ -130,8 +145,12 @@
 		 save: function(){
 		 	that = this;
 		 	console.log('Entrando a orden save...');
+		 	swal(
+		 		'Guardando... Espere por favor',
+		 		swal.showLoading()
+		 		)
 			$.ajax({
-				url: 'orden-servicio/save',
+				url: 'orden-servicio',
 				type: 'POST',
 				contentType: false, 
 				processData: false,
@@ -139,10 +158,19 @@
 			})
 			.done(function(response) {
 				console.log(response);
-				// that.render();
+				swal(
+				  '¡Listo!',
+				  'Orden de Servicio Guardada',
+				  'success'
+				)
 			})
 			.fail(function(error) {
 				console.log(error);
+				swal(
+				  '¡Oops!',
+				  'Ha habido un error al guardar la Orden',
+				  'error'
+				)
 			});
 		 }
 	}

@@ -10,8 +10,8 @@ POST	/login 						controllers.Authenticate.authenticate
 GET		/logout 					controllers.Authenticate.logout
 #########ORDEN DE SERVICIO##########
 GET		/orden-servicio				controllers.OrdenesServicios.indexCreateOrden
+POST	/orden-servicio 			controllers.OrdenesServicios.save
 GET		/count-ordenes-servicio		controllers.OrdenesServicios.list
-POST	/orden-servicio/save		controllers.OrdenesServicios.save
 GET		/buscador-orden				controllers.OrdenesServicios.buscador
 ############# SERVICIOS ############
 GET 	/servicios-token-input		controllers.Servicios.tokenServicios

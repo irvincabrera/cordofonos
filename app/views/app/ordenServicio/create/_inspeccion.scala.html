@@ -1,7 +1,8 @@
 @(
-	id 		: String,
-	tipo	: String,
-	labels	: Array[String]	
+	id 			: String,
+	tipo		: String,
+	labels		: Array[String],	
+	fieldNames	: Array[String]	
 )
 
 
@@ -18,25 +19,25 @@
 				<div class="radio  clearfix col-md-4 col-sm-4">
 					<div class="col-md-3 col-sm-3">
 						<label>
-							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Óptimas Condiciones">
+							<input class="clearCheck" type="radio" name="@fieldNames(i)" value="Óptimas Condiciones">
 							B
 						</label>
 					</div>
 					<div class="col-md-3 col-sm-3">
 						<label>
-							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Puede requerir Atención">
+							<input class="clearCheck" type="radio" name="@fieldNames(i)" value="Puede requerir Atención">
 							R
 						</label>
 					</div>
 					<div class="col-md-3 col-sm-3">
 						<label>
-							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Atención Inmediata">
+							<input class="clearCheck" type="radio" name="@fieldNames(i)" value="Atención Inmediata">
 							M
 						</label>
 					</div>
 					<div class="col-md-3 col-sm-3">
 						<label>
-							<input class="clearCheck" type="radio" name="inspeccion@labels(i)" value="Anotaciones">
+							<input class="clearCheck" type="radio" name="@fieldNames(i)" value="Anotaciones">
 							*
 						</label>
 					</div>

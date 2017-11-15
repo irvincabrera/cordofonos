@@ -47,7 +47,7 @@ public class OrdenesServicios extends Controller {
             return badRequest("error");
         } else {
             Result result;
-            OrdenServicio object = OrdenServicio.save(ordenForm.get(), user);
+            OrdenServicio object = OrdenServicio.save(ordenForm.get(), clienteForm.get(),instrumentoForm.get(), user);
 
             if(object!=null){
                 result = created(Json.toJson(object));

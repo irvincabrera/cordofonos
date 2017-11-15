@@ -120,10 +120,21 @@ public class OrdenServicio extends Model{
 	/******************CRUD********************/
 	/******************************************/
 
-	@Transactional
-	public static OrdenServicio save(OrdenServicio orden, Usuario user){
-		Logger.debug("Salvando OrdenServicio"+orden);
+	// @Transactional
+	public static OrdenServicio save(OrdenServicio orden, Cliente cliente, Instrumento instrumento, Usuario user){
+		Logger.debug("Salvando OrdenServicio: "+orden);
 		try{
+			Logger.debug("Entering try...");
+			orden.createdBy = user;
+			if (cliente.id != null) {
+				cliente.save();
+				cliente.refresh();
+			}
+			if (instrumento.id != null) {
+				instrumento.save();
+				instrumento.refresh();
+			}
+			
 			orden.save();
 			orden.refresh();
 		}catch(Exception e){

@@ -18,7 +18,7 @@ public class CondicionesAjuste extends Model{
 
 	public String puente;
 
-	public String Cejuela;
+	public String cejuela;
 
 	public String trastes;
 
