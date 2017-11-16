@@ -1,4 +1,5 @@
 (function(){
+
 	var createOrden ={
 
 		init: function () {
@@ -32,15 +33,31 @@
 			this.$legendHerrajes		= $('#legend-'+idherrajes);
 			this.$legendPlasticos		= $('#legend-'+idplasticos);
 			
+			this.$anotaciones			= $('#div-anotaciones');
+			this.$radiosInspeccion		= $('.radiosInspeccion');
+
 			this.$tabla 				= this.$formOrden.find('.tabla-prueba');
 
 			this.$saveBtn				= $('#saveBtn');
 			this.$cancelBtn				= $('#cancelBtn');
+
+			// this.$rules = {
+			// 	 rules: {
+			// 	    // simple rule, converted to {required:true}
+			// 	    nombreCompleto: "required",
+			// 	    whatsapp: {
+			// 	      required: true,
+			// 	      minLength: 10
+			// 	    }
+			// 	  }
+			// };
+			// this.$formOrden.validate(this.$rules);
 			
 		},
 		binder: function () {
 			this.$radiosInstrumento.on('click',this.showOtro.bind(this));
 			this.$radiosRecibido.on('click',this.showOtro.bind(this));
+			this.$radiosInspeccion.on('click',this.showAnotaciones.bind(this));
 			this.$checkboxInspeccion.on('click',this.showInspeccion.bind(this));
 			this.$saveBtn.on('click',this.save.bind(this));
 			this.$cancelBtn.on('click',this.cancel.bind(this));
@@ -101,6 +118,30 @@
 				console.log("NO Checado");
 			 	$('#' +$lala.val()).slideUp(400);
 			 	$('#'+$lala.val()+' .clearCheck').prop('checked',false);
+			}
+		},
+		showAnotaciones: function (event) {
+			that = this;
+			var valor = event.target.getAttribute('value');
+			console.log('valor: ',valor);
+			console.log('event.target',event.target);
+			if (valor == 'Anotaciones') {
+				console.log('show anotaciones');
+				var textareaAnota = that.$anotaciones.find('textarea');
+				var anotaContent = textareaAnota.val().trim();
+				var label = event.target.closest('label','.clearMargin');
+				console.log('anotaContent',anotaContent+' .');
+				if (anotaContent === '') {
+					console.log('viene blanco');
+					textareaAnota.val(event.target.getAttribute('name')+':');
+				} else {
+					console.log('NO viene blanco');
+					textareaAnota.val(anotaContent+'\n'+event.target.getAttribute('name')+':');
+				}	
+				that.$anotaciones.show(400);
+			} else {
+				console.log('hide anotaciones');	
+				that.$anotaciones.hide(400);
 			}
 		},
 		getNumOrden: function(){
