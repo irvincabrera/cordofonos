@@ -102,7 +102,7 @@ public class OrdenServicio extends Model{
 		return noOrden;
 	}
 
-	public static int list(){
+	public static int getNumOrden(){
 
 		 int orden = OrdenServicio.find.findRowCount();
 		// List<OrdenServicio> orden = OrdenServicio.find.all();
@@ -129,16 +129,21 @@ public class OrdenServicio extends Model{
 			Logger.debug("Entering try...");
 			orden.createdBy = user;
 			orden.estatus = "En Proceso";
-			if (cliente.id != null) {
+			if (cliente != null) {
+				Logger.info("cliente no es nulo!");
+				orden.cliente = cliente;
 				cliente.save();
 				cliente.refresh();
 			}
-			if (instrumento.id != null) {
+			if (instrumento != null) {
+				Logger.info("instrumento no es nulo!");
+				orden.instrumento = instrumento;
 				instrumento.save();
 				instrumento.refresh();
 			}
 			
 			orden.save();
+			Logger.info("orden.save()");
 			orden.refresh();
 		}catch(Exception e){
 			Logger.error("No se pudo salvar OrdenServicio");

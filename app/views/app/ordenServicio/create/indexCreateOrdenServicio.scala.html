@@ -20,7 +20,7 @@
 	        $('#limpiarBtn').bind('click', function () {
 	        	$("#div-firmaElectronica").jSignature('clear');
 	        	$('.print').prop('src','');         	
-				$('#firmaElectronica').text('');
+				$('#firmaElectronica').val('');
 	        });
 
 	        $('#guardarFirmaBtn').bind('click', function () {
@@ -30,7 +30,7 @@
 				i.src = "data:" + datapair[0] + "," + datapair[1];
 				// $(i).appendTo($("#div-firmaElectronicaPrint")); // append the image (SVG) to DOM.
 				$('.print').prop('src',i.src); 
-				$('#firmaElectronica').text(i.src);
+				$('#firmaElectronica').val(i.src);
 			})
 	    })
 	</script>

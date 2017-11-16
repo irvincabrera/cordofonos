@@ -23,7 +23,7 @@
 
 			this.$checkboxInspeccion	= this.$formOrden.find('input[name=inspeccion]');
 			this.$clearCheck			= this.$formOrden.find('.clearCheck');
-			this.$optionsServicios		= this.$formOrden.find('#optionsServicios');
+			this.$optionsServicios		= this.$formOrden.find('.optionsServicios');
 
 			// this.$innerAccion			=$('#inner-'+idaccionEntonacion);
 			this.$legendAccion			= $('#legend-'+idaccionEntonacion);
@@ -54,8 +54,8 @@
 			
 		},
 		render: function () {
-			this.$tabla.DataTable();
-			this.renderCount();
+			// this.$tabla.DataTable();
+			this.getNumOrden();
 			this.$optionsServicios.tokenInput('/servicios-token-input');
 		},
 		cancel: function (e) {
@@ -103,7 +103,7 @@
 			 	$('#'+$lala.val()+' .clearCheck').prop('checked',false);
 			}
 		},
-		renderCount: function(){
+		getNumOrden: function(){
 			var that = this;
 			$.ajax({
 				url: '/count-ordenes-servicio',
@@ -120,7 +120,9 @@
 						that.$numOrden.text('00'+(data+1));
 					}else if (data >= 100 && data < 1000) {
 						that.$numOrden.text('0'+(data+1));
-					};;
+					}else{
+						that.$numOrden.text(data);
+					}
 				}
 			})
 			.fail(function() {
@@ -166,6 +168,10 @@
 				  'Orden de Servicio Guardada',
 				  'success'
 				)
+				.then(function () {
+				  window.location.replace("/orden-servicio");
+				})
+				.catch(swal.noop);
 			})
 			.fail(function(error) {
 				console.log(error);

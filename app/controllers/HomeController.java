@@ -20,7 +20,7 @@ public class HomeController extends Controller {
      */
     public Result index() {
         Usuario user = Usuario.getByName(request().username()); 
-        Logger.debug("===> requestUserName: ",request().username());
+        Logger.debug("===> requestUserName: ",user);
         return ok(index.render(user));
     }
 
