@@ -124,22 +124,42 @@
 			that = this;
 			var valor = event.target.getAttribute('value');
 			console.log('valor: ',valor);
-			console.log('event.target',event.target);
-			if (valor == 'Anotaciones') {
+
+			var $radio = $(event.target);
+			console.log('event.target',$radio);
+			
+			var textareaAnota = that.$anotaciones.find('textarea');
+
+
+			if ($radio.prop('checked') && valor == 'Anotaciones' ) {
 				console.log('show anotaciones');
-				var textareaAnota = that.$anotaciones.find('textarea');
 				var anotaContent = textareaAnota.val().trim();
-				var label = event.target.closest('label','.clearMargin');
 				console.log('anotaContent',anotaContent+' .');
+
+				var label = $('#inspecciones').find('.label'+event.target.getAttribute('name')).text();
+				console.log('label',label);
 				if (anotaContent === '') {
 					console.log('viene blanco');
-					textareaAnota.val(event.target.getAttribute('name')+':');
+					textareaAnota.val(label+': ');
 				} else {
 					console.log('NO viene blanco');
-					textareaAnota.val(anotaContent+'\n'+event.target.getAttribute('name')+':');
+					// if (anotaContent.indexOf(label)!=-1) {
+						textareaAnota.val(anotaContent+'\n'+label+': ');
+					// }
+					textareaAnota.focus(function(e) {
+					     if (e.which == 8 || e.which == 46) {
+				            $(this).height(parseFloat($(this).css("min-height")) != 0 ? parseFloat($(this).css("min-height")) : parseFloat($(this).css("font-size")));
+				        }
+				        //  the following will help the text expand as typing takes place
+				        while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+				            $(this).height($(this).height()+1);
+				        };
+					});
 				}	
 				that.$anotaciones.show(400);
-			} else {
+			} else 
+			if ($radio.prop('checked') && valor != 'Anotaciones' && textareaAnota === '') 
+			{
 				console.log('hide anotaciones');	
 				that.$anotaciones.hide(400);
 			}
